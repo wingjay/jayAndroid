@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/wingjay/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="/Users/wingjay/Documents/android/JayAndroid/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-8872ac99e969df396ab40355e7f13e1abdacbdc2.jar" />
+    </item>
+    <item
+        jar="/Users/wingjay/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/7.0.1/d5d13ea991eab0252e3710e5df3d6a9d4b21d461/butterknife-7.0.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d5d13ea991eab0252e3710e5df3d6a9d4b21d461">
+        <dex dex="/Users/wingjay/Documents/android/JayAndroid/app/build/intermediates/pre-dexed/debug/butterknife-7.0.1-310cb0c71c2faffb9b379b0e7666a686175ec7a0.jar" />
+    </item>
+    <item
+        jar="/Users/wingjay/Documents/android/JayAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/libs/internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="/Users/wingjay/Documents/android/JayAndroid/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-cedf80eaa4979626c24dda291ce608472b2d1a66.jar" />
+    </item>
+    <item
+        jar="/Users/wingjay/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.8/77bbfe240e437ecb396d982afa0d3bd4f9090ba7/android-async-http-1.4.8.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="77bbfe240e437ecb396d982afa0d3bd4f9090ba7">
+        <dex dex="/Users/wingjay/Documents/android/JayAndroid/app/build/intermediates/pre-dexed/debug/android-async-http-1.4.8-8b2f4afc7f566d87e47a6d0543834c2b41322b68.jar" />
+    </item>
+    <item
+        jar="/Users/wingjay/Documents/android/JayAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="/Users/wingjay/Documents/android/JayAndroid/app/build/intermediates/pre-dexed/debug/classes-1b4ddac764ef5f1d2f3b392ff6f580274b18127d.jar" />
+    </item>
+    <item
+        jar="/Users/wingjay/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/1.7.2/112366d8158749e25532ebce162232c6e0fb20a5/gson-1.7.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="112366d8158749e25532ebce162232c6e0fb20a5">
+        <dex dex="/Users/wingjay/Documents/android/JayAndroid/app/build/intermediates/pre-dexed/debug/gson-1.7.2-4fccbe74039a4b47d95e5e219814a82b87a56b76.jar" />
+    </item>
+    <item
+        jar="/Users/wingjay/Documents/android/JayAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="/Users/wingjay/Documents/android/JayAndroid/app/build/intermediates/pre-dexed/debug/classes-5296d4924591d11f1294b7c0987e20bc221fdfad.jar" />
+    </item>
+
+</items>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        android:orientation="vertical"
+        >
+
+        <EditText
+            android:id="@+id/proportion_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Proportion Value"
+            />
+
+        <EditText
+            android:id="@+id/animate_duration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Animation Duration"
+            />
+
+        <Button
+            android:id="@+id/update_proportion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Update Proportion"
+            />
+
+        <com.wingjay.jayandroid.customizeview.ProportionView
+            android:id="@+id/proportion_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+
+    <com.wingjay.jayandroid.customizeview.ScreenScrollViewGroup
+        android:id="@+id/my_view_group"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/material_blue_grey_800"
+        />
+
+</LinearLayout>

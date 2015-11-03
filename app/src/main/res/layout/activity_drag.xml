@@ -1,0 +1,57 @@
+<com.wingjay.jayandroid.drag.DragLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/dragLayout">
+
+    <View
+        android:id="@+id/drag1"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:background="#AD78CC"
+        android:visibility="gone"
+        />
+
+    <View
+        android:id="@+id/drag2"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:background="#FF00FF"
+        android:visibility="gone"
+        />
+    <LinearLayout
+        android:id="@+id/item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/dragable_content"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:background="@color/material_blue_grey_800">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="hahaha"
+                android:textSize="18sp"
+                />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/dragable_hidden"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:background="#777929">
+
+
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</com.wingjay.jayandroid.drag.DragLayout>

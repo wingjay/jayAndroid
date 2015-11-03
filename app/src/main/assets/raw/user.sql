@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS 'user' (
+  `id` INTEGER PRIMARY,
+  `name` STRING NOT NULL,
+  `age` INTEGER NOT NULL,
+  `height` INTEGER
+);
