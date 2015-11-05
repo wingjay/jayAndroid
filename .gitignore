@@ -1,0 +1,116 @@
+*.idea
+*.iml
+*/*.iml
+local.properties
+build/*
+app/app.iml
+Skip to content
+This repository  
+Pull requests
+Issues
+Gist
+ @wingjay
+ Unwatch 28
+  Star 0
+ Fork 0 upwlabs/emma PRIVATE
+ Branch: master  emma/.gitignore
+cf3e4d9  on Sep 11
+ yinjie Merge branch 'android-v3.6' of github.com:upwlabs/emma into android-v…
+7 contributors @yejianye @wangjir @okcomp @eric-x @allenhsu @ULHI-xin @sbhhbs
+RawBlameHistory     94 lines (73 sloc)  1.27 KB
+# Git merge file
+#####################
+*.orig
+
+server/.idea/
+
+# Compiled python file
+#####################
+*.pyc
+
+# PIL generated file
+#####################
+*.pkl
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Tags #
+########
+tags
+
+# Backup file #
+###############
+*.bak
+
+# Excel file under script
+emma/script/*.xls
+
+# Vim Temp files #
+##################
+.*.sw*
+.sw*
+*.un~
+
+# ipython notebook
+*.ipynb
+
+# PyCharm #
+###########
+server/emma/.idea/*
+server/.idea/
+
+# Xcode generated files #
+#########################
+DerivedData
+*.xcuserstate
+xcuserdata
+xcuserdata/*
+emma/ios/emma/build/*
+
+# local config
+#######################
+server/emma/conf/local.py
+server/emma/conf/local_pre.py
+server/emma/conf/bank.py
+server/emma/conf/logger_local.yaml
+
+ConfigLocal.h
+
+server/emma/www/static/uploaded/
+server/emma/www/built/
+
+server/emma/forum/uploads/userpics
+server/emma/forum/cache
+server/emma/forum/err.log
+server/emma/forum/cache
+server/emma/forum/conf/config.php
+.sass-cache
+.git
+
+# android 
+###########################
+android.iml
+
+# Node modules
+node_modules
+
+# CocoaPod
+Pods/
+LocalPodfile.rb
+
+server/emma/build
+server/emma/www/webviews/human-api/npm-debug.log
+server/doc/build/
+
+iemma.sh
+ios/emma.xcworkspace/
+ios/Rollout-ios-SDK/.structures/archive
+Status API Training Shop Blog About Pricing
+© 2015 GitHub, Inc. Terms Privacy Security Contact Help
+

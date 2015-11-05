@@ -13,6 +13,7 @@ import com.wingjay.jayandroid.drawable.DrawableActivity;
 import com.wingjay.jayandroid.eventdispatch.EventDispatchActivity;
 import com.wingjay.jayandroid.fulltextview.FullTextViewActivity;
 import com.wingjay.jayandroid.gesture.GestureActivity;
+import com.wingjay.jayandroid.perisope.PerisopeActivity;
 import com.wingjay.jayandroid.qqitem.DragableActivity;
 
 import butterknife.OnClick;
@@ -69,6 +70,11 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.customize_view)
     void customizeView() {
         startActivity(new Intent(MainActivity.this, CustomizeViewActivity.class));
+    }
+
+    @OnClick(R.id.perisope_view)
+    void perisipeView() {
+        startActivity(new Intent(MainActivity.this, PerisopeActivity.class));
     }
 
 }
