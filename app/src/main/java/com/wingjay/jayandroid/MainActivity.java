@@ -6,11 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.wingjay.jayandroid.contentprovider.ContentResolverActivity;
+import com.wingjay.jayandroid.curve.CurveActivity;
 import com.wingjay.jayandroid.customizeview.CustomizeViewActivity;
 import com.wingjay.jayandroid.drag.DragActivity;
 import com.wingjay.jayandroid.drag.DragChooseActivity;
 import com.wingjay.jayandroid.drawable.DrawableActivity;
 import com.wingjay.jayandroid.eventdispatch.EventDispatchActivity;
+import com.wingjay.jayandroid.fastblur.FastBlurActivity;
 import com.wingjay.jayandroid.fulltextview.FullTextViewActivity;
 import com.wingjay.jayandroid.gesture.GestureActivity;
 import com.wingjay.jayandroid.perisope.PerisopeActivity;
@@ -76,5 +78,16 @@ public class MainActivity extends BaseActivity {
     void perisipeView() {
         startActivity(new Intent(MainActivity.this, PerisopeActivity.class));
     }
+
+    @OnClick(R.id.curve_view)
+    void curveView() {
+        startActivity(new Intent(MainActivity.this, CurveActivity.class));
+    }
+
+    @OnClick(R.id.fast_blur)
+    void fastBlur() {
+        startActivity(new Intent(MainActivity.this, FastBlurActivity.class));
+    }
+
 
 }

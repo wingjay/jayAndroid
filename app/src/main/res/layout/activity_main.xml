@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
@@ -6,67 +6,88 @@
     android:padding="20dp"
     >
 
-    <Button
-        android:id="@+id/contentProvider"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="content provider"
-        />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/gesture"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Gesture"
-        />
+        <Button
+            android:id="@+id/contentProvider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="content provider"
+            />
 
-    <Button
-        android:id="@+id/drag_helper"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="DragHelper"
-        />
+        <Button
+            android:id="@+id/gesture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gesture"
+            />
 
-    <Button
-        android:id="@+id/drag_able"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Dragable Item View"
-        />
+        <Button
+            android:id="@+id/drag_helper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DragHelper"
+            />
 
-    <Button
-        android:id="@+id/event_dispatch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Event Dispatch"
-        />
+        <Button
+            android:id="@+id/drag_able"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dragable Item View"
+            />
 
-    <Button
-        android:id="@+id/full_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Full TextView"
-        />
+        <Button
+            android:id="@+id/event_dispatch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Event Dispatch"
+            />
 
-    <Button
-        android:id="@+id/drawable"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Drawable"
-        />
+        <Button
+            android:id="@+id/full_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Full TextView"
+            />
 
-    <Button
-        android:id="@+id/customize_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Customize View"
-        />
+        <Button
+            android:id="@+id/drawable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Drawable"
+            />
 
-    <Button
-        android:id="@+id/perisope_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Perisope View"
-        />
+        <Button
+            android:id="@+id/customize_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Customize View"
+            />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/perisope_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Perisope View"
+            />
+
+        <Button
+            android:id="@+id/curve_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Draw Curve View"
+            />
+
+        <Button
+            android:id="@+id/fast_blur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fast Blur"
+            />
+
+    </LinearLayout>
+
+</ScrollView>

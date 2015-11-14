@@ -1,3 +1,13 @@
+.gradle/2.2.1/taskArtifacts/cache.properties.lock
+.gradle/2.2.1/taskArtifacts/fileHashes.bin
+.gradle/2.2.1/taskArtifacts/fileSnapshots.bin
+.gradle/2.2.1/taskArtifacts/outputFileStates.bin
+.gradle/2.2.1/taskArtifacts/taskArtifacts.bin
+app/app.iml
+build/intermediates/dex-cache/cache.xml
+local.properties
+settings.gradle
+.gradletasknamecache
 *.idea
 *.iml
 */*.iml
