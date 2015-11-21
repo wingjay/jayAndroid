@@ -5,47 +5,9 @@
               android:layout_height="match_parent"
     >
 
-    <FrameLayout
-        android:id="@+id/border_1"
+    <com.wingjay.jayandroid.eventdispatch.MyHorizontalScrollView
+        android:id="@+id/horizontal_scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#000000"
-        android:padding="50dp"
-        >
-
-        <FrameLayout
-            android:id="@+id/border_2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#333333"
-            android:padding="50dp"
-            >
-
-            <FrameLayout
-                android:id="@+id/border_3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#777777"
-                android:padding="50dp"
-                >
-
-                <FrameLayout
-                    android:id="@+id/border_4"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#aaaaaa"
-                    android:padding="50dp"
-                    >
-
-
-                </FrameLayout>
-
-            </FrameLayout>
-
-        </FrameLayout>
-
-
-    </FrameLayout>
-
+        android:layout_height="match_parent" />
 
 </LinearLayout>

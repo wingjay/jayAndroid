@@ -4,4 +4,8 @@
     <color name="black">#000000</color>
 
     <color name="green">#9292</color>
+
+    <color name="ColorPrimary">#FF5722</color>
+    <color name="ColorPrimaryDark">#E64A19</color>
+    <color name="textColorPrimary">#ffffff</color>
 </resources>

@@ -17,6 +17,7 @@ import com.wingjay.jayandroid.fulltextview.FullTextViewActivity;
 import com.wingjay.jayandroid.gesture.GestureActivity;
 import com.wingjay.jayandroid.perisope.PerisopeActivity;
 import com.wingjay.jayandroid.qqitem.DragableActivity;
+import com.wingjay.jayandroid.statusbar.StatusBarActivity;
 
 import butterknife.OnClick;
 
@@ -89,5 +90,13 @@ public class MainActivity extends BaseActivity {
         startActivity(new Intent(MainActivity.this, FastBlurActivity.class));
     }
 
+    @OnClick(R.id.status_bar)
+    void statusBar() {
+        startMyActivity(StatusBarActivity.class);
+    }
+
+    private void startMyActivity(Class clz) {
+        startActivity(new Intent(MainActivity.this, clz));
+    }
 
 }

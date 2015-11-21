@@ -5,4 +5,14 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="StatusBarActivity" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Make the status bar traslucent -->
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+
+        <item name="android:colorPrimary">@color/ColorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/ColorPrimaryDark</item>
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+    </style>
+
+
 </resources>

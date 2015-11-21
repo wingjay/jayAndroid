@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/blur_layout"
+    android:background="@color/green"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <EditText
+            android:id="@+id/enter_blur_factor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="blur factor"
+            android:inputType="number"
+            />
+        <Button
+            android:id="@+id/do_blur_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background_floating_material_dark"
+            android:text="Blur layout"
+            android:textColor="#ffffff"
+            android:textAllCaps="false"
+            />
+
+        <ImageView
+            android:id="@+id/blur_image"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/medium_nm_1"
+            />
+
+        <Button
+            android:id="@+id/change_blur_method"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background_floating_material_dark"
+            android:text="Change blur method"
+            android:textColor="#ffffff"
+            android:textAllCaps="false"
+            />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/medium_nm_2"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="为什么我们要在addOnPreDrawListener中来调用blur方法呢，看我前面的文章的朋友应该会知道，这样做是为了能够在onCreate中获取控件尺寸，通过scaleFactor和radius两个参数，我们来控制Blur的程度。
+代码中还有几点需要解释下：
+1、我们为什么要通过scaleFactor来缩小图片：由于在做Blur的时候，图片精度本来就要降低，那么我们为什么不先降低精度再去处理呢，这样的效果就是巨大的缩小了生成时间
+2、我们给Paint提供了FILTER_BITMAP_FLAG标示，这样的话在处理bitmap缩放的时候，就可以达到双缓冲的效果，模糊处理的过程就更加顺畅了
+3、如果我们要做某一部分的Blur效果，一般是将这部分图片裁减下来，然后Blur后设给某个控件的背景
+最终效果如下：
+"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -41,6 +41,11 @@
         <activity android:name=".perisope.PerisopeActivity"/>
         <activity android:name=".curve.CurveActivity"/>
         <activity android:name=".fastblur.FastBlurActivity"/>
+        <activity android:name=".fastblur.LayoutBlurActivity"/>
+
+        <activity android:name=".statusbar.StatusBarActivity"
+            android:theme="@style/StatusBarActivity"/>
+
 
         <provider
             android:authorities="com.wingjay.jayandroid.contentprovider"

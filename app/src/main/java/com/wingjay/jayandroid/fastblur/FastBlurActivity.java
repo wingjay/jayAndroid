@@ -1,5 +1,6 @@
 package com.wingjay.jayandroid.fastblur;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -97,6 +98,9 @@ public class FastBlurActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_fast_blur);
+
+        // Go to layoutBlurActivity
+        startActivity(new Intent(this, LayoutBlurActivity.class));
     }
 
     @OnClick(R.id.fast_blur_btn)

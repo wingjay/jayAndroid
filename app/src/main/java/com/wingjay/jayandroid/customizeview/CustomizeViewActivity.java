@@ -31,7 +31,6 @@ public class CustomizeViewActivity extends BaseActivity {
     @Bind(R.id.animate_duration)
     EditText animateDurationEditText;
 
-
     @Bind(R.id.my_view_group)
     ViewGroup myViewGroup;
 

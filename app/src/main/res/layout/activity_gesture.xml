@@ -5,20 +5,34 @@
               android:layout_height="match_parent"
     >
 
-    <FrameLayout
+    <Button
+        android:id="@+id/move_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Move image"
+        android:textAllCaps="false"
+        />
+
+    <LinearLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="300dp"
+        android:background="#987698"
         >
 
-        <ImageView
+        <com.wingjay.jayandroid.gesture.ScrollImageView
             android:id="@+id/image"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@drawable/facedemo"
-            android:layout_gravity="center"
             />
 
-    </FrameLayout>
+        <ImageView
+            android:id="@+id/image2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/facedemo"
+            />
+    </LinearLayout>
 
 </LinearLayout>

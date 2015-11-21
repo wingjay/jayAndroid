@@ -1,13 +1,27 @@
 package com.wingjay.jayandroid.eventdispatch;
 
+import android.animation.ObjectAnimator;
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wingjay.jayandroid.BaseActivity;
 import com.wingjay.jayandroid.R;
+import com.wingjay.jayandroid.util.DisplayUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.OnClick;
@@ -17,17 +31,11 @@ import butterknife.OnClick;
  */
 public class EventDispatchActivity extends BaseActivity {
 
-    @Bind(R.id.border_1)
-    View border1;
+    @Bind(R.id.horizontal_scroll_view)
+    MyHorizontalScrollView horizontalScrollView;
 
-    @Bind(R.id.border_2)
-    View border2;
-
-    @Bind(R.id.border_3)
-    View border3;
-
-    @Bind(R.id.border_4)
-    View border4;
+    ActionBar actionBar;
+    int actionBarHeight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,50 +43,102 @@ public class EventDispatchActivity extends BaseActivity {
 
         setContentView(R.layout.activity_event_dispatch);
 
-        View.OnClickListener listener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setBgColor(v);
-            }
-        };
-        View.OnTouchListener onTouchListener = new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                String viewName = "unknown";
-                if (v == border1) {
-                    viewName = "border1";
-                } else if (v == border2) {
-                    viewName = "border2";
-                } else if (v == border3) {
-                    viewName = "border3";
-                } else if (v == border4) {
-                    viewName = "border4";
+        actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBarHeight = actionBar.getHeight();
+        }
+
+        // add three listView in horizontalScrollView
+        int screenWidth = DisplayUtil.getScreenWidth(this);
+        for (int i=0; i<3; i++) {
+            MyListView listView = new MyListView(horizontalScrollView.getContext());
+
+            LinearLayout.LayoutParams layoutParams =
+                    new LinearLayout.LayoutParams(screenWidth, LinearLayout.LayoutParams.MATCH_PARENT);
+            listView.setLayoutParams(layoutParams);
+
+            listView.setAdapter(new MyAdapter(this));
+
+            listView.setOnScrollUpDownListener(new MyListView.OnScrollUpDownListener() {
+                @Override
+                public void onScrollDown() {
+                    showActionBarStatus(false);
                 }
-                Log.i("eventDispatch", "viewName : " + viewName + ", action : " + event.getAction());
-                return false;
+
+                @Override
+                public void onScrollUp() {
+                    showActionBarStatus(true);
+                }
+            });
+
+            listView.setBackgroundColor(Color.rgb(255 / (i + 1), 255 / (i + 2), 0));
+            horizontalScrollView.addView(listView);
+        }
+    }
+
+    private void showActionBarStatus(boolean show) {
+        Log.i("MyHorizontalScrollView", "show " + show);
+
+        if ((show && actionBar.isShowing()) ||
+                (!show && !actionBar.isShowing())) {
+            return;
+        }
+
+        if (show) {
+            actionBar.show();
+        } else {
+            actionBar.hide();
+        }
+    }
+
+    private static List<Integer> dataList = new ArrayList<>();
+
+    static {
+        for (int i=0; i<20; i++) {
+            dataList.add(i);
+        }
+    }
+
+    private class MyAdapter extends BaseAdapter {
+
+        class ViewHolder {
+            TextView textView;
+        }
+
+        Context context;
+        public MyAdapter(Context context) {
+            this.context = context;
+        }
+
+        @Override
+        public int getCount() {
+            return dataList.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return dataList.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ViewHolder viewHolder;
+            if (convertView == null) {
+                convertView = LayoutInflater.from(context).inflate(android.R.layout.simple_list_item_1, null);
+                viewHolder = new ViewHolder();
+                viewHolder.textView = (TextView) convertView.findViewById(android.R.id.text1);
+                convertView.setTag(viewHolder);
             }
-        };
-        border1.setOnClickListener(listener);
-        border2.setOnClickListener(listener);
-        border3.setOnClickListener(listener);
-        border4.setOnClickListener(listener);
-        border1.setOnTouchListener(onTouchListener);
-        border2.setOnTouchListener(onTouchListener);
-        border3.setOnTouchListener(onTouchListener);
-        border4.setOnTouchListener(onTouchListener);
-    }
+            viewHolder = (ViewHolder) convertView.getTag();
 
-    private void setBgColor(View view) {
-        border1.setBackgroundColor((view == border1) ? Color.RED : Color.parseColor("#000000"));
-        border2.setBackgroundColor((view == border2) ? Color.RED : Color.parseColor("#333333"));
-        border3.setBackgroundColor((view == border3) ? Color.RED : Color.parseColor("#777777"));
-        border4.setBackgroundColor((view == border4) ? Color.RED : Color.parseColor("#aaaaaa"));
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        Log.i("eventDispatch", "EventDispatchActivity, action : " + event.getAction());
-        return super.onTouchEvent(event);
+            viewHolder.textView.setText(String.valueOf(dataList.get(position)));
+            return convertView;
+        }
     }
 
 }
