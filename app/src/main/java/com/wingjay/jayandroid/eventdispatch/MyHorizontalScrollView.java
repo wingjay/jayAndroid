@@ -3,8 +3,12 @@ package com.wingjay.jayandroid.eventdispatch;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
+import android.view.VelocityTracker;
+import android.view.View;
 import android.view.ViewConfiguration;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
 
@@ -13,7 +17,7 @@ import com.wingjay.jayandroid.util.DisplayUtil;
 /**
  * Created by jay on 11/21/15.
  */
-public class MyHorizontalScrollView extends LinearLayout {
+public class MyHorizontalScrollView extends ViewGroup {
 
     private static final String TAG = "MyHorizontalScrollView";
     private Context context;
@@ -24,6 +28,7 @@ public class MyHorizontalScrollView extends LinearLayout {
     private ValueAnimator valueAnimator;
 
     private Scroller scroller;
+    private VelocityTracker velocityTracker;
 
     private int screenWidth = DisplayUtil.getScreenWidth(getContext());
 
@@ -42,8 +47,9 @@ public class MyHorizontalScrollView extends LinearLayout {
     }
 
     private void init() {
-        setOrientation(HORIZONTAL);
+        //setOrientation(HORIZONTAL);
         scroller = new Scroller(context);
+        velocityTracker = velocityTracker.obtain();
     }
 
     @Override
@@ -74,10 +80,17 @@ public class MyHorizontalScrollView extends LinearLayout {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        //start track velocity
+        velocityTracker.addMovement(event);
+
         int currX = (int) event.getX();
         int currY = (int) event.getY();
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
+                // if animation is running, abort it
+                if (!scroller.isFinished()) {
+                    scroller.abortAnimation();
+                }
                 break;
             case MotionEvent.ACTION_MOVE:
                 int offsetX = 0;
@@ -95,10 +108,18 @@ public class MyHorizontalScrollView extends LinearLayout {
                 break;
             case MotionEvent.ACTION_UP:
                 int index = getScrollX() / screenWidth;
-                if (getScrollX() > (2 * index + 1) * screenWidth / 2) {
-                    if (index < getChildCount() - 1) {
-                        index++;
+
+                velocityTracker.computeCurrentVelocity(1000);
+                float velocity = velocityTracker.getXVelocity();
+
+                if (Math.abs(velocity) >= 50) {
+                    if (velocity > 0) {
+                        index = Math.max(index, 0);
+                    } else {
+                        index = Math.min(getChildCount() - 1, index + 1);
                     }
+                } else if ((getScrollX() > (2 * index + 1) * screenWidth / 2)) {
+                    index = Math.min(getChildCount() - 1, index);
                 }
                 smoothScrollToChildAt(index);
                 break;
@@ -106,6 +127,68 @@ public class MyHorizontalScrollView extends LinearLayout {
         lastX = currX;
         lastY = currY;
         return true;
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        // handle when spec is AT_MOST
+        // if AT_MOST, it will need MeasureSpec of its Children View
+        measureChildren(widthMeasureSpec, heightMeasureSpec);
+
+        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+        int widthSize = MeasureSpec.getSize(widthMeasureSpec);
+        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+        int heightSize = MeasureSpec.getSize(heightMeasureSpec);
+        // take padding into consideration
+        int realWidth = getPaddingLeft() + getPaddingRight();
+        int realHeight = getPaddingTop() + getPaddingBottom();
+        Log.i(TAG, "get its padding left " + getPaddingLeft() + ", top " + getPaddingTop()
+                + ", right " + getPaddingRight() + ", bottom " + getPaddingBottom());
+        int childrenCount = getChildCount();
+        LayoutParams lp = (LinearLayout.LayoutParams) getLayoutParams();
+        if (widthMode == MeasureSpec.AT_MOST) {
+            // the realWidth contains Each child's width multiplied by count plus padding
+            if (childrenCount == 0) {
+                realWidth += lp.width;
+                Log.i(TAG, "when measure mode is at-most, its layoutparams width is " + lp.width);
+            } else {
+                View childView = getChildAt(0);
+                realWidth += childView.getMeasuredWidth() * childrenCount;
+            }
+        } else {
+            realWidth = widthSize;
+        }
+        if (heightMode == MeasureSpec.AT_MOST) {
+            // the realHeight contains the height of one ChildView and padding
+            if (childrenCount == 0) {
+                realHeight += lp.height;
+                Log.i(TAG, "when measure mode is at-most, its layoutparams height is " + lp.height);
+            } else {
+                View childView = getChildAt(0);
+                realHeight += childView.getMeasuredHeight();
+            }
+        } else {
+            realHeight = heightSize;
+        }
+
+        // set the measure width/height for this layout
+        setMeasuredDimension(realWidth, realHeight);
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        // there are several inner children View, layout them
+        int childrenViewCount = getChildCount();
+        int currLeft = 0;
+        for (int i=0; i<childrenViewCount; i++) {
+            View currentChildView = getChildAt(i);
+            if (currentChildView.getVisibility() != GONE) {
+                currentChildView.layout(currLeft, 0, currLeft + currentChildView.getMeasuredWidth(),
+                        currentChildView.getMeasuredHeight());
+                currLeft += currentChildView.getMeasuredWidth();
+            }
+        }
     }
 
     private void moveHorizontallyByScroller(int offsetX) {

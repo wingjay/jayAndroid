@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
@@ -48,10 +49,20 @@ public class BlurImageView extends ImageView {
         }
     };
 
+    private long start;
     private Target fullTarget = new SimpleTarget() {
         @Override
+        public void onPrepareLoad(Drawable placeHolderDrawable) {
+            start = System.currentTimeMillis();
+        }
+
+        @Override
         public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
-            setImageBitmap(getBlurBitmap(bitmap));
+            Log.i("blurimage", "bitmap loaded consume time " + (System.currentTimeMillis() - start) + " ms");
+            start = System.currentTimeMillis();
+            Bitmap blurBm = getBlurBitmap(bitmap);
+            Log.i("blurimage", "bitmap blur consume time " + (System.currentTimeMillis() - start) + " ms");
+            setImageBitmap(blurBm);
             Picasso.with(mContext).load(mOriginImageUrl).placeholder(getDrawable()).into(BlurImageView.this);
         }
     };

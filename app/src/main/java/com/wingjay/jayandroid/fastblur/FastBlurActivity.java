@@ -100,7 +100,7 @@ public class FastBlurActivity extends BaseActivity {
         setContentView(R.layout.activity_fast_blur);
 
         // Go to layoutBlurActivity
-        startActivity(new Intent(this, LayoutBlurActivity.class));
+        //startActivity(new Intent(this, LayoutBlurActivity.class));
     }
 
     @OnClick(R.id.fast_blur_btn)

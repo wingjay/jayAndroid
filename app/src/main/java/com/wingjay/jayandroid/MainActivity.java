@@ -3,6 +3,7 @@ package com.wingjay.jayandroid;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 
 import com.wingjay.jayandroid.contentprovider.ContentResolverActivity;
@@ -13,6 +14,7 @@ import com.wingjay.jayandroid.drag.DragChooseActivity;
 import com.wingjay.jayandroid.drawable.DrawableActivity;
 import com.wingjay.jayandroid.eventdispatch.EventDispatchActivity;
 import com.wingjay.jayandroid.fastblur.FastBlurActivity;
+import com.wingjay.jayandroid.fastblur.FastBlurJni;
 import com.wingjay.jayandroid.fulltextview.FullTextViewActivity;
 import com.wingjay.jayandroid.gesture.GestureActivity;
 import com.wingjay.jayandroid.perisope.PerisopeActivity;
@@ -43,6 +45,7 @@ public class MainActivity extends BaseActivity {
                 startActivity(new Intent(MainActivity.this, GestureActivity.class));
             }
         });
+        Log.i(TAG, FastBlurJni.test());
     }
 
     @OnClick(R.id.drag_helper)

@@ -7,6 +7,23 @@ import android.graphics.Bitmap;
  */
 public class FastBlurUtil {
 
+    public static Bitmap doBlurJniBitMap(Bitmap sentBitmap, int radius, boolean canReuseInBitmap) {
+        Bitmap bitmap;
+        if (canReuseInBitmap) {
+            bitmap = sentBitmap;
+        } else {
+            bitmap = sentBitmap.copy(sentBitmap.getConfig(), true);
+        }
+
+        if (radius < 1) {
+            return (null);
+        }
+        //Jni BitMap
+        //FastBlurJni.blurBitMap(bitmap, radius);
+
+        return (bitmap);
+    }
+
     public static Bitmap doBlur(Bitmap sentBitmap, int radius, boolean canReuseInBitmap) {
 
         // Stack Blur v1.0 from
