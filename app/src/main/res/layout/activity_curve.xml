@@ -3,15 +3,70 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/change_curve"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
-    <com.wingjay.jayandroid.curve.CurveView
-        android:id="@+id/curve_view"
+    <com.wingjay.jayandroid.curve.ClockView
+        android:id="@+id/clock_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        />
+
+    <com.wingjay.jayandroid.curve.CircleToRectView
+        android:id="@+id/circle_to_rect_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:orientation="vertical"
+        >
+
+        <Button
+            android:id="@+id/change_curve"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+
+                <View
+                    android:id="@+id/ball_1"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:background="@drawable/ball_bg"
+                    />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+
+                <View
+                    android:id="@+id/ball_2"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:background="@drawable/ball_bg"
+                    />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>
