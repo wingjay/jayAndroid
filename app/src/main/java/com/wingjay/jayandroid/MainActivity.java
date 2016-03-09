@@ -13,6 +13,7 @@ import com.wingjay.jayandroid.drag.DragActivity;
 import com.wingjay.jayandroid.drag.DragChooseActivity;
 import com.wingjay.jayandroid.drawable.DrawableActivity;
 import com.wingjay.jayandroid.eventdispatch.EventDispatchActivity;
+import com.wingjay.jayandroid.fab.FabActivity;
 import com.wingjay.jayandroid.fastblur.FastBlurActivity;
 import com.wingjay.jayandroid.fastblur.FastBlurJni;
 import com.wingjay.jayandroid.fulltextview.FullTextViewActivity;
@@ -45,7 +46,7 @@ public class MainActivity extends BaseActivity {
                 startActivity(new Intent(MainActivity.this, GestureActivity.class));
             }
         });
-        Log.i(TAG, FastBlurJni.test());
+//        Log.i(TAG, FastBlurJni.test());
     }
 
     @OnClick(R.id.drag_helper)
@@ -96,6 +97,11 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.status_bar)
     void statusBar() {
         startMyActivity(StatusBarActivity.class);
+    }
+
+    @OnClick(R.id.fabMenu)
+    void fabMenu() {
+        startMyActivity(FabActivity.class);
     }
 
     private void startMyActivity(Class clz) {

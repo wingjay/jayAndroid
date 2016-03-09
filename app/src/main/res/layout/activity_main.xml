@@ -12,6 +12,13 @@
         android:layout_height="match_parent">
 
         <Button
+            android:id="@+id/fabMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fab Menu"
+            />
+
+        <Button
             android:id="@+id/contentProvider"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

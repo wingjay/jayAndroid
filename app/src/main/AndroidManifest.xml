@@ -46,6 +46,8 @@
         <activity android:name=".statusbar.StatusBarActivity"
             android:theme="@style/StatusBarActivity"/>
 
+        <activity android:name=".fab.FabActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
         <provider
             android:authorities="com.wingjay.jayandroid.contentprovider"

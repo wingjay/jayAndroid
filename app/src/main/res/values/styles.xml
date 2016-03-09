@@ -3,16 +3,24 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/purple</item>
+        <item name="colorPrimaryDark">@color/dark_purple</item>
+        <item name="colorAccent">@color/white</item>
     </style>
 
     <style name="StatusBarActivity" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Make the status bar traslucent -->
         <!--<item name="android:windowTranslucentStatus">true</item>-->
 
-        <item name="android:colorPrimary">@color/ColorPrimary</item>
-        <item name="android:colorPrimaryDark">@color/ColorPrimaryDark</item>
+        <item name="colorPrimary">@color/ColorPrimary</item>
+        <item name="colorPrimaryDark">@color/ColorPrimaryDark</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
     </style>
 
+    <!-- FabMenu buttons labels text styel -->
+    <style name="menu_labels_style">
+        <!--<item name="android:background">@drawable/fab_label_background</item>-->
+        <item name="android:textColor">@color/black</item>
+    </style>
 
 </resources>

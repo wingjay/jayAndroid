@@ -116,7 +116,9 @@ public class CircleToRectView extends View {
 
     @Override
     protected void onDetachedFromWindow() {
-        animatorSet.cancel();
+        if (animatorSet != null && animatorSet.isRunning()) {
+            animatorSet.cancel();
+        }
         super.onDetachedFromWindow();
     }
 }

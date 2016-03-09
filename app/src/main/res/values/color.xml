@@ -8,4 +8,10 @@
     <color name="ColorPrimary">#FF5722</color>
     <color name="ColorPrimaryDark">#E64A19</color>
     <color name="textColorPrimary">#ffffff</color>
+    <color name="fab_normal_white">#ffffff</color>
+    <color name="fab_pressed_white">#f1f1f1</color>
+    <color name="purple">#5A62D2</color>
+    <color name="dark_purple">#484EA8</color>
+    <color name="light_purple">#EEEFFA</color>
+    <color name="white">@android:color/white</color>
 </resources>

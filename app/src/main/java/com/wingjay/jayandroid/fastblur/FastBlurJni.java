@@ -14,6 +14,6 @@ public class FastBlurJni {
     public static native String test(int a);
 
     static {
-        System.loadLibrary("FastBlurLib"); //defaultConfig.ndk.moduleName
+//        System.loadLibrary("FastBlurLib"); //defaultConfig.ndk.moduleName
     }
 }

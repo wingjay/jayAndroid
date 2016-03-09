@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:fab="http://schemas.android.com/apk/res-auto"
+             android:id="@+id/fab_menu_root"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+    >
+
+    <RelativeLayout android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/fab_menu_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            />
+
+        <Button
+            android:id="@+id/do_blur_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="blur it"
+            android:layout_below="@+id/fab_menu_toolbar"
+            android:background="@color/green"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/do_blur_btn"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/item_fab_menu_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="23dp"
+                android:capitalize="sentences"
+                android:text="hahahahahahasdfadfasdfasdfasdfasdfasdfasdf"
+                android:textColor="@color/black"
+                />
+
+            <ImageView
+                android:id="@+id/item_fab_menu_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="23dp"
+                android:capitalize="sentences"
+                android:text="hahahahahahasdfadfasdfasdfasdfasdfasdfasdf"
+                android:textColor="@color/black"
+                />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/medium_nm_1"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
