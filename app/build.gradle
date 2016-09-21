@@ -1,17 +1,23 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
 
 android {
-  compileSdkVersion 21
+  compileSdkVersion 23
   buildToolsVersion "21.1.2"
 
   defaultConfig {
     applicationId "com.wingjay.jayandroid"
     minSdkVersion 15
-    targetSdkVersion 21
+    targetSdkVersion 23
     renderscriptTargetApi 19
     renderscriptSupportModeEnabled true
     versionCode 1
     versionName "1.0"
+
+    ndk {
+      moduleName "NdkUtilLibrary"  //生成的so名字
+      abiFilters "armeabi", "armeabi-v7a", "x86"  //输出指定三种abi体系结构下的so库。目前可有可无
+    }
   }
 
   sourceSets {
@@ -29,12 +35,39 @@ android {
 
 dependencies {
   compile fileTree(dir: 'libs', include: ['*.jar'])
-  compile 'com.android.support:appcompat-v7:22.2.0'
+  compile 'com.android.support:appcompat-v7:23.0.0'
   compile 'com.loopj.android:android-async-http:1.4.8'
   compile 'com.google.code.gson:gson:1.7.2'
   compile 'com.jakewharton:butterknife:7.0.1'
   compile 'com.squareup.picasso:picasso:2.5.2'
 
+  compile 'com.wingjay:blurimageviewlib:2.0.1'
+
   compile 'com.getbase:floatingactionbutton:1.10.1'
   compile 'com.google.guava:guava:18.0'
+
+  compile 'io.reactivex:rxandroid:1.1.0'
+  // Because RxAndroid releases are few and far between, it is recommended you also
+  // explicitly depend on RxJava's latest version for bug fixes and new features.
+  compile 'io.reactivex:rxjava:1.1.0'
+
+  // dagger
+  apt 'com.google.dagger:dagger-compiler:2.2'
+  compile 'com.google.dagger:dagger:2.2'
+  provided 'javax.annotation:jsr250-api:1.0'
+
+  compile 'io.reactivex:rxandroid:0.23.0'
+
+  // retrofit 2 & okhttp 3
+  compile 'com.squareup.retrofit2:retrofit:2.1.0'
+  compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+  compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+  compile 'com.squareup.okhttp3:okhttp:3.4.1'
+
+  // leak canary
+  debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
+  releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+  testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+
+  compile 'com.uniquestudio:lowpoly:1.0.0'
 }

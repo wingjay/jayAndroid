@@ -1,18 +1,15 @@
 package com.wingjay.jayandroid;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import butterknife.ButterKnife;
 
 
 public class BaseActivity extends AppCompatActivity {
 
-    protected String TAG = getClass().getSimpleName();
+    protected String TAG = "jayDebug";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,5 +1,6 @@
 package com.wingjay.jayandroid.drawable;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -24,11 +26,21 @@ public class DrawableActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         ScrollView scrollView = new ScrollView(this);
         LinearLayout linearLayout = new LinearLayout(this);
         linearLayout.setLayoutParams(
                 new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         linearLayout.setOrientation(LinearLayout.VERTICAL);
+
+        ImageView letterIconImageView = new ImageView(DrawableActivity.this);
+        letterIconImageView.setLayoutParams(new LinearLayout.LayoutParams(400, 400));
+        TextDrawable textDrawable  = TextDrawable.builder().beginConfig()
+            .textColor(Color.GREEN)
+            .toUpperCase()
+            .endConfig()
+            .buildRoundRect("abc", Color.RED, 50);
+        letterIconImageView.setImageDrawable(textDrawable);
 
         FrameLayout opacityBg = new FrameLayout(this);
         opacityBg.setLayoutParams(new FrameLayout.LayoutParams(500, 500));
@@ -65,6 +77,7 @@ public class DrawableActivity extends BaseActivity {
             }
         });
 
+        linearLayout.addView(letterIconImageView);
         linearLayout.addView(editText);
         linearLayout.addView(brightnessBtn);
         linearLayout.addView(transparencyBtn);

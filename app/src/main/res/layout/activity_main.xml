@@ -12,6 +12,55 @@
         android:layout_height="match_parent">
 
         <Button
+            android:id="@+id/ndk_dev"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ndk dev"
+            />
+
+        <Button
+            android:id="@+id/low_poly"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Low Poly"
+            />
+
+        <Button
+            android:id="@+id/retrofit_upgrade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Retrofit Upgrade"
+            />
+
+        <Button
+            android:id="@+id/bitmap_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bitmap test"
+            />
+
+        <Button
+            android:id="@+id/dagger"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dagger"
+            />
+
+        <Button
+            android:id="@+id/activity_transition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="activity transition"
+            />
+
+        <Button
+            android:id="@+id/rxJava"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RxJava"
+            />
+
+        <Button
             android:id="@+id/fabMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

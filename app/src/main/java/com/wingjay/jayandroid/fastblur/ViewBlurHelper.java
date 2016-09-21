@@ -2,13 +2,12 @@ package com.wingjay.jayandroid.fastblur;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.drawable.BitmapDrawable;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 
-import java.io.ByteArrayOutputStream;
+import com.wingjay.jayandroid.util.BitmapUtil;
 
 /**
  * This helper class will blur any given view fastly.
@@ -28,7 +27,7 @@ public class ViewBlurHelper {
   public ViewBlurHelper(ViewGroup tobeBlurViewGroup) {
     this.tobeBlurViewGroup = tobeBlurViewGroup;
     this.holder = new ImageView(tobeBlurViewGroup.getContext());
-    holder.setLayoutParams(new FrameLayout.LayoutParams(
+    holder.setLayoutParams(new ViewGroup.LayoutParams(
         ViewGroup.LayoutParams.MATCH_PARENT,
         ViewGroup.LayoutParams.MATCH_PARENT));
     holder.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -55,36 +54,28 @@ public class ViewBlurHelper {
     // scale screenshot to a very small size
     smallScreenshotBitmap = Bitmap.createScaledBitmap(
         screenshotBitmap,
-        screenshotBitmap.getWidth() / 20,
-        screenshotBitmap.getHeight() / 20,
+        screenshotBitmap.getWidth() / 2,
+        screenshotBitmap.getHeight() / 2,
         false);
 
     // blur this small bitmap
     long start = System.currentTimeMillis();
     bluredScreenshotBitmap = FastBlurUtil.doBlur(smallScreenshotBitmap, radius, true);
-    Log.i("viewblurhelper", "pure blur time " + (System.currentTimeMillis() - start));
+    Log.i("viewblurhelper", "pure blur time " + (System.currentTimeMillis() - start) + "ms");
 
     // set this blur bitmap
     holder.setImageBitmap(bluredScreenshotBitmap);
-
-    tobeBlurViewGroup.addView(holder);
+    holder.setBackgroundColor(Color.WHITE);
+    tobeBlurViewGroup.addView(holder, 1);
 
     // recycle bitmap
-    Log.i("viewblurhelper", "whole blur time " + (System.currentTimeMillis() - startBlur));
-    ByteArrayOutputStream stream = new ByteArrayOutputStream();
-    screenshotBitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-    byte[] imageInByte = stream.toByteArray();
-    Log.i("viewblurhelper", "screenshotBitmap size byte " + String.valueOf(imageInByte.length));
-
-    ByteArrayOutputStream stream2 = new ByteArrayOutputStream();
-    smallScreenshotBitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
-    byte[] imageInByte2 = stream2.toByteArray();
-    Log.i("viewblurhelper", "smallScreenshotBitmap size byte " + String.valueOf(imageInByte2.length));
-
-    ByteArrayOutputStream stream3 = new ByteArrayOutputStream();
-    bluredScreenshotBitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream3);
-    byte[] imageInByte3 = stream3.toByteArray();
-    Log.i("viewblurhelper", "bluredScreenshotBitmap size byte " + String.valueOf(imageInByte3.length));
+    Log.i("viewblurhelper", "whole blur time " + (System.currentTimeMillis() - startBlur) + "ms");
+    Log.i("viewblurhelper", "screenshotBitmap size byte "
+        + String.valueOf(BitmapUtil.getBitmapByteSize(screenshotBitmap)));
+    Log.i("viewblurhelper", "smallScreenshotBitmap size byte "
+        + String.valueOf(BitmapUtil.getBitmapByteSize(smallScreenshotBitmap)));
+    Log.i("viewblurhelper", "bluredScreenshotBitmap size byte "
+        + String.valueOf(BitmapUtil.getBitmapByteSize(bluredScreenshotBitmap)));
 
     if (screenshotBitmap.isRecycled()) {
       screenshotBitmap.recycle();
@@ -92,13 +83,30 @@ public class ViewBlurHelper {
     if (smallScreenshotBitmap.isRecycled()) {
       smallScreenshotBitmap.recycle();
     }
-//    screenshotBitmap.recycle();
-//    smallScreenshotBitmap.recycle();
+  }
+
+  public Bitmap getSmallScreenshotBitmap() {
+    // get screenshot
+    screenshotBitmap = Bitmap.createBitmap(
+        tobeBlurViewGroup.getWidth(),
+        tobeBlurViewGroup.getHeight(),
+        Bitmap.Config.ARGB_8888);
+    Canvas canvas = new Canvas(screenshotBitmap);
+    tobeBlurViewGroup.draw(canvas);
+
+    // scale screenshot to a very small size
+    smallScreenshotBitmap = Bitmap.createScaledBitmap(
+        screenshotBitmap,
+        screenshotBitmap.getWidth() / 20,
+        screenshotBitmap.getHeight() / 20,
+        false);
+
+    bluredScreenshotBitmap = FastBlurUtil.doBlur(smallScreenshotBitmap, 12, true);
+    return bluredScreenshotBitmap;
   }
 
   public void removeBlurLayer() {
     tobeBlurViewGroup.removeView(holder);
-//    bluredScreenshotBitmap.recycle();
   }
 
   public ImageView getBlurImageView() {

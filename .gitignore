@@ -1,3 +1,5 @@
+app/src/main/.DS_Store
+captures/*
 .gradle/*
 .gradle/2.8/taskArtifacts/*
 .gradle/*
