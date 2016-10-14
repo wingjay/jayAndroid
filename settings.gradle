@@ -1,1 +1,2 @@
-include ':app', ':blurimageview'
+include ':app'
+//include ':app', ':blurimageview'

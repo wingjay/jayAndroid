@@ -12,6 +12,13 @@
         android:layout_height="match_parent">
 
         <Button
+            android:id="@+id/a_bot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ABot"
+            />
+
+        <Button
             android:id="@+id/ndk_dev"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

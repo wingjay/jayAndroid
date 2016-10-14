@@ -1,5 +1,6 @@
 package com.wingjay.jayandroid.dagger.component;
 
+import com.wingjay.jayandroid.abot.ABotActivity;
 import com.wingjay.jayandroid.dagger.ForForum;
 import com.wingjay.jayandroid.dagger.bean.People;
 import com.wingjay.jayandroid.dagger.host.DaggerHostActivity;
@@ -20,4 +21,6 @@ public interface AppComponent {
     @ForForum People people();
 
     void inject(DaggerHostActivity daggerHostActivity);
+
+    void inject(ABotActivity aBotActivity);
 }

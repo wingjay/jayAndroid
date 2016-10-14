@@ -36,7 +36,6 @@ public class LowPolyHelper {
     if (input == null) {
       return null;
     }
-
     int width = input.getWidth();
     int height = input.getHeight();
 
@@ -53,6 +52,7 @@ public class LowPolyHelper {
         }
       }
     });
+
     // 添加随机点
     for (int i = 0; i < pointCount; i++) {
       particles.add(new int[]{(int) (Math.random() * width), (int) (Math.random() * height)});

@@ -21,8 +21,10 @@ import butterknife.Bind;
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.functions.Func3;
+import rx.schedulers.Schedulers;
 
 /**
  * We can view an Observable as a water flow, and data as floating leaves on the water. The observable will always transfer data to you,
@@ -42,6 +44,32 @@ public class RxJavaActivity extends BaseActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.listview);
+
+    Log.d("jaydebug", " 1 current thread " + Thread.currentThread().getName());
+    Observable.just("haha")
+        .map(new Func1<String, String>() {
+          @Override
+          public String call(String s) {
+            Log.d("jaydebug", " 2 current thread " + Thread.currentThread().getName());
+            return s;
+          }
+        })
+        .observeOn(AndroidSchedulers.mainThread())
+        .map(new Func1<String, String>() {
+          @Override
+          public String call(String s) {
+            Log.d("jaydebug", " 3 current thread " + Thread.currentThread().getName());
+            return null;
+          }
+        })
+        .subscribeOn(Schedulers.io())
+        .subscribe(new Action1<String>() {
+          @Override
+          public void call(String s) {
+            Log.d("jaydebug", " 4 current thread " + Thread.currentThread().getName());
+          }
+        });
+
 
     gankAdapter = new GankAdapter(RxJavaActivity.this, items);
     listView.setAdapter(gankAdapter);
@@ -75,7 +103,7 @@ public class RxJavaActivity extends BaseActivity {
 //    tryRetryObservables();
 
     // onerror
-    tryOnError();
+//    tryOnError();
   }
 
   private void tryOnError() {

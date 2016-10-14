@@ -64,6 +64,7 @@
         <activity android:name=".retrofitOkhttpUpgrade.RetrofitOkhttpUpgradeActivity"/>
         <activity android:name=".lowpoly.LowPolyActivity"/>
         <activity android:name=".ndkdev.NdkActivity"/>
+        <activity android:name=".abot.ABotActivity"/>
         <provider
             android:authorities="com.wingjay.jayandroid.contentprovider"
             android:name=".contentprovider.JayContentProvider"

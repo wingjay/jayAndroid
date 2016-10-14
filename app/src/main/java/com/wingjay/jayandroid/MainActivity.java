@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.wingjay.jayandroid.abot.ABotActivity;
 import com.wingjay.jayandroid.animation.searchbar.TransitionAnimationFromActivity;
 import com.wingjay.jayandroid.bitmap.BitmapTestingActivity;
 import com.wingjay.jayandroid.contentprovider.ContentResolverActivity;
@@ -51,6 +52,12 @@ public class MainActivity extends BaseActivity {
         });
 //        Log.i(TAG, FastBlurJni.test());
     }
+
+  @OnClick(R.id.a_bot)
+  void abot() {
+    startMyActivity(ABotActivity.class);
+  }
+
 
     @OnClick(R.id.ndk_dev)
     void ndkDev() {
