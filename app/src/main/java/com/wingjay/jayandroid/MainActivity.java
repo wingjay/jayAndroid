@@ -16,6 +16,7 @@ import com.wingjay.jayandroid.drawable.DrawableActivity;
 import com.wingjay.jayandroid.eventdispatch.EventDispatchActivity;
 import com.wingjay.jayandroid.fab.FabActivity;
 import com.wingjay.jayandroid.fastblur.FastBlurActivity;
+import com.wingjay.jayandroid.fragmentstudy.HolderActivity;
 import com.wingjay.jayandroid.fulltextview.FullTextViewActivity;
 import com.wingjay.jayandroid.gesture.GestureActivity;
 import com.wingjay.jayandroid.lowpoly.LowPolyActivity;
@@ -58,6 +59,10 @@ public class MainActivity extends BaseActivity {
     startMyActivity(ABotActivity.class);
   }
 
+  @OnClick(R.id.fragment_holder)
+  void holder() {
+    startMyActivity(HolderActivity.class);
+  }
 
     @OnClick(R.id.ndk_dev)
     void ndkDev() {

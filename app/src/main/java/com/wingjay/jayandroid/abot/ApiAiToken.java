@@ -6,7 +6,7 @@ package com.wingjay.jayandroid.abot;
 
 public class ApiAiToken {
 
-  public final static String CLIENT_TOKEN = "4fbf73e5bc34498eb294811ff9121b94";
-  public final static String DEVELOPER_TOKEN = "38e3d1c6e3244a2bbed7be99d990b6af";
+  public final static String CLIENT_TOKEN = "aec48880af9f4f23a98d09a1a55e5689";
+  public final static String DEVELOPER_TOKEN = "8c1583c6a19d4ca09247a38ddcc2f740";
 
 }

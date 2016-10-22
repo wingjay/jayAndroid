@@ -38,6 +38,9 @@ public class ABotActivity extends BaseActivity {
   @Bind(R.id.query_result)
   TextView queryResult;
 
+  @Bind(R.id.query_raw_result)
+  TextView rawResult;
+
   @Bind(R.id.query_status)
   TextView queryStatus;
 
@@ -66,8 +69,9 @@ public class ABotActivity extends BaseActivity {
           @Override
           public void call(ApiAiResponse apiAiResponse) {
             queryStatus.setText("success query");
+            queryResult.setText(apiAiResponse.getResult().getFulfillment().getSpeech());
             Gson gson = new Gson();
-            queryResult.setText(gson.toJson(apiAiResponse));
+            rawResult.setText(gson.toJson(apiAiResponse));
           }
         }, new Action1<Throwable>() {
           @Override

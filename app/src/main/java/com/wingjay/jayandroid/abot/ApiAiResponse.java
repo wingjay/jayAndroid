@@ -280,7 +280,7 @@ public class ApiAiResponse {
     }
     
   }
-  private class Fulfillment {
+  public class Fulfillment {
     
     @SerializedName("speech")
     @Expose

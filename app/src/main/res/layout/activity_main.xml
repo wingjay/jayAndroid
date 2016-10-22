@@ -19,6 +19,13 @@
             />
 
         <Button
+            android:id="@+id/fragment_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fragment Holder"
+            />
+
+        <Button
             android:id="@+id/ndk_dev"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
