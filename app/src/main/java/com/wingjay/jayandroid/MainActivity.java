@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.wingjay.jayandroid.abot.ABotActivity;
+import com.wingjay.jayandroid.animation.searchbar.LottieActivity;
 import com.wingjay.jayandroid.animation.searchbar.TransitionAnimationFromActivity;
 import com.wingjay.jayandroid.bitmap.BitmapTestingActivity;
 import com.wingjay.jayandroid.contentprovider.ContentResolverActivity;
@@ -13,6 +14,7 @@ import com.wingjay.jayandroid.customizeview.CustomizeViewActivity;
 import com.wingjay.jayandroid.daggerForGlow.fakeApp.DaggerForGlowAppActivity;
 import com.wingjay.jayandroid.drag.DragChooseActivity;
 import com.wingjay.jayandroid.drawable.DrawableActivity;
+import com.wingjay.jayandroid.eveanimation.EveCycleViewActivity;
 import com.wingjay.jayandroid.eventdispatch.EventDispatchActivity;
 import com.wingjay.jayandroid.fab.FabActivity;
 import com.wingjay.jayandroid.fastblur.FastBlurActivity;
@@ -23,9 +25,11 @@ import com.wingjay.jayandroid.lowpoly.LowPolyActivity;
 import com.wingjay.jayandroid.ndkdev.NdkActivity;
 import com.wingjay.jayandroid.perisope.PerisopeActivity;
 import com.wingjay.jayandroid.qqitem.DragableActivity;
+import com.wingjay.jayandroid.realm.RealmIntroActivity;
 import com.wingjay.jayandroid.retrofitOkhttpUpgrade.RetrofitOkhttpUpgradeActivity;
 import com.wingjay.jayandroid.rxjava.RxJavaActivity;
 import com.wingjay.jayandroid.statusbar.StatusBarActivity;
+import com.wingjay.jayandroid.webview.WebViewActivity;
 
 import butterknife.OnClick;
 
@@ -54,9 +58,33 @@ public class MainActivity extends BaseActivity {
 //        Log.i(TAG, FastBlurJni.test());
     }
 
+  @OnClick(R.id.lottie)
+  void lottie() {
+    startMyActivity(LottieActivity.class);
+  }
+
+  @OnClick(R.id.eve_home_animation)
+  void eveHomeAnimation() {
+    startMyActivity(EveCycleViewActivity.class);
+//    TaskStackBuilder.create(getApplicationContext())
+//        .addNextIntent(new Intent(this, EveCycleViewActivity.class))
+//        .addNextIntentWithParentStack(new Intent(this, EveHomeActivity.class))
+//        .startActivities();
+  }
+
+  @OnClick(R.id.webview)
+  void webview() {
+    startMyActivity(WebViewActivity.class);
+  }
+
   @OnClick(R.id.a_bot)
   void abot() {
     startMyActivity(ABotActivity.class);
+  }
+
+  @OnClick(R.id.realm)
+  void realm() {
+    startMyActivity(RealmIntroActivity.class);
   }
 
   @OnClick(R.id.fragment_holder)

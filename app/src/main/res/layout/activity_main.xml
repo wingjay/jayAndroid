@@ -12,10 +12,37 @@
         android:layout_height="match_parent">
 
         <Button
+            android:id="@+id/lottie"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Lottie Animation"
+        />
+
+        <Button
+            android:id="@+id/eve_home_animation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Eve Home Animation"
+        />
+
+        <Button
+            android:id="@+id/webview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="WebView"
+        />
+
+        <Button
             android:id="@+id/a_bot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ABot"
+            />
+
+        <Button
+            android:id="@+id/realm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Realm"
             />
 
         <Button

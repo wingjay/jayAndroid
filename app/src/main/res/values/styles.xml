@@ -17,6 +17,11 @@
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
     </style>
 
+    <style name="TransparentTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
     <!-- FabMenu buttons labels text styel -->
     <style name="menu_labels_style">
         <!--<item name="android:background">@drawable/fab_label_background</item>-->
