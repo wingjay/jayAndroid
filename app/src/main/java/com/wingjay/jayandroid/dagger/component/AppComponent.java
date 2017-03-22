@@ -6,6 +6,7 @@ import com.wingjay.jayandroid.dagger.bean.People;
 import com.wingjay.jayandroid.dagger.host.DaggerHostActivity;
 import com.wingjay.jayandroid.dagger.modules.AppModule;
 import com.wingjay.jayandroid.dagger.modules.ForumModule;
+import com.wingjay.jayandroid.weex.HelloWeexActivity;
 
 import javax.inject.Singleton;
 
@@ -23,4 +24,6 @@ public interface AppComponent {
     void inject(DaggerHostActivity daggerHostActivity);
 
     void inject(ABotActivity aBotActivity);
+
+    void inject(HelloWeexActivity obj);
 }

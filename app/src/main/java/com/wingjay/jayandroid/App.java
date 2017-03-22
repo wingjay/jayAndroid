@@ -4,6 +4,8 @@ import android.app.Application;
 
 import com.facebook.stetho.Stetho;
 import com.squareup.leakcanary.LeakCanary;
+import com.taobao.weex.InitConfig;
+import com.taobao.weex.WXSDKEngine;
 import com.wingjay.jayandroid.dagger.component.AppComponent;
 import com.wingjay.jayandroid.dagger.component.DaggerAppComponent;
 import com.wingjay.jayandroid.dagger.component.DaggerSubComponent;
@@ -15,6 +17,7 @@ import com.wingjay.jayandroid.daggerForGlow.fakeApp.component.DaggerGlowAppCompo
 import com.wingjay.jayandroid.daggerForGlow.fakeApp.component.GlowAppComponent;
 import com.wingjay.jayandroid.daggerForGlow.fakeApp.module.GlowAppModule;
 import com.wingjay.jayandroid.daggerForGlow.fakeForum.component.GlowForumComponent;
+import com.wingjay.jayandroid.weex.WeexImageAdapter;
 
 import io.realm.Realm;
 
@@ -48,7 +51,14 @@ public class App extends Application implements GlowForumComponentProvider {
       glowAppComponent = DaggerGlowAppComponent.builder()
                           .glowAppModule(new GlowAppModule(this))
                           .build();
+
+      initWeex();
     }
+
+  private void initWeex() {
+    WXSDKEngine.initialize(this,
+        new InitConfig.Builder().setImgAdapter(new WeexImageAdapter()).build());
+  }
 
     public AppComponent getAppComponent() {
         return appComponent;

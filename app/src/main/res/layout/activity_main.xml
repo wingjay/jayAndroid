@@ -12,6 +12,13 @@
         android:layout_height="match_parent">
 
         <Button
+            android:id="@+id/weex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hello Weex"
+            />
+
+        <Button
             android:id="@+id/lottie"
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:text="Lottie Animation"

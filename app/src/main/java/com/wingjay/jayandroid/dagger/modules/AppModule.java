@@ -60,7 +60,7 @@ public class AppModule {
     @ForApiAi
     @Provides
     Retrofit provideRetrofit(@ForApiAi OkHttpClient okHttpClient) {
-        return new Retrofit.Builder().baseUrl("https://api.api.ai/v1/")
+        return new Retrofit.Builder().baseUrl("https://wtf/v1/")
             .client(okHttpClient)
             .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())

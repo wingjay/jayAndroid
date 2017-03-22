@@ -44,7 +44,7 @@
         <activity android:name=".fulltextview.FullTextViewActivity"/>
 
         <activity android:name=".drawable.DrawableActivity"/>
-
+        <activity android:name=".weex.HelloWeexActivity"/>
         <activity android:name=".customizeview.CustomizeViewActivity"/>
 
         <activity android:name=".perisope.PerisopeActivity"/>

@@ -30,6 +30,7 @@ import com.wingjay.jayandroid.retrofitOkhttpUpgrade.RetrofitOkhttpUpgradeActivit
 import com.wingjay.jayandroid.rxjava.RxJavaActivity;
 import com.wingjay.jayandroid.statusbar.StatusBarActivity;
 import com.wingjay.jayandroid.webview.WebViewActivity;
+import com.wingjay.jayandroid.weex.HelloWeexActivity;
 
 import butterknife.OnClick;
 
@@ -57,6 +58,11 @@ public class MainActivity extends BaseActivity {
         });
 //        Log.i(TAG, FastBlurJni.test());
     }
+
+  @OnClick(R.id.weex)
+  void weex() {
+    startMyActivity(HelloWeexActivity.class);
+  }
 
   @OnClick(R.id.lottie)
   void lottie() {
