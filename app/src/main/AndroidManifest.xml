@@ -46,7 +46,8 @@
         <activity android:name=".drawable.DrawableActivity"/>
         <activity android:name=".weex.HelloWeexActivity"/>
         <activity android:name=".customizeview.CustomizeViewActivity"/>
-
+        <activity android:name=".ForTestActivity"
+            />
         <activity android:name=".perisope.PerisopeActivity"/>
         <activity android:name=".curve.CurveActivity"/>
         <activity android:name=".fastblur.FastBlurActivity"/>

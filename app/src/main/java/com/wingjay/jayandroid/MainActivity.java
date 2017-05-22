@@ -59,6 +59,11 @@ public class MainActivity extends BaseActivity {
 //        Log.i(TAG, FastBlurJni.test());
     }
 
+  @OnClick(R.id.for_test)
+  void test() {
+    startMyActivity(ForTestActivity.class);
+  }
+
   @OnClick(R.id.weex)
   void weex() {
     startMyActivity(HelloWeexActivity.class);
