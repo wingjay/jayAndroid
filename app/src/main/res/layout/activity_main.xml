@@ -12,6 +12,12 @@
         android:layout_height="match_parent">
 
         <Button
+            android:id="@+id/skin"
+            android:text="Skin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
             android:id="@+id/for_test"
             android:text="For Test"
             android:layout_width="match_parent"
