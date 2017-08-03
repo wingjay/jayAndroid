@@ -9,7 +9,7 @@ public class AttrFactory {
 	public static final String DIVIDER = "divider";
 	
 	public static SkinAttr get(String attrName, int attrValueRefId, String attrValueRefName, String typeName){
-		
+		// 根据 attrName 构造 SkinAttr
 		SkinAttr mSkinAttr = null;
 		
 		if(BACKGROUND.equals(attrName)){ 

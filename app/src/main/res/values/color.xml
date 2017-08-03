@@ -14,4 +14,15 @@
     <color name="dark_purple">#484EA8</color>
     <color name="light_purple">#EEEFFA</color>
     <color name="white">@android:color/white</color>
+
+
+    <!--skin starts-->
+    <color name="colorPrimary">#3F4551</color>
+    <color name="colorPrimaryDark">#3F9F9F</color>
+    <color name="colorAccent">#40FF81</color>
+    <color name="color_app_bg">#330033</color>
+    <color name="color_title_bar_bg">#FF0066</color>
+    <color name="color_title_bar_text">#66FFFF</color>
+    <!--skin ends-->
+
 </resources>

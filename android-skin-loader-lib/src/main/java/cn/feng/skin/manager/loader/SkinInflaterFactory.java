@@ -1,15 +1,14 @@
 package cn.feng.skin.manager.loader;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.Context;
 import android.content.res.Resources.NotFoundException;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.LayoutInflater.Factory;
 import android.view.View;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import cn.feng.skin.manager.config.SkinConfig;
 import cn.feng.skin.manager.entity.AttrFactory;
 import cn.feng.skin.manager.entity.DynamicAttr;
@@ -131,13 +130,13 @@ public class SkinInflaterFactory implements Factory {
 			skinItem.attrs = viewAttrs;
 
 			mSkinItems.add(skinItem);
-			
+			// 如果当前非默认皮肤，则自动应用皮肤
 			if(SkinManager.getInstance().isExternalSkin()){
 				skinItem.apply();
 			}
 		}
 	}
-	
+	// real apply skin method
 	public void applySkin(){
 		if(ListUtils.isEmpty(mSkinItems)){
 			return;

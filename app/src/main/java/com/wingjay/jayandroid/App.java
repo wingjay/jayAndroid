@@ -2,6 +2,7 @@ package com.wingjay.jayandroid;
 
 import android.app.Application;
 
+import cn.feng.skin.manager.loader.SkinManager;
 import com.facebook.stetho.Stetho;
 import com.squareup.leakcanary.LeakCanary;
 import com.taobao.weex.InitConfig;
@@ -53,6 +54,9 @@ public class App extends Application implements GlowForumComponentProvider {
                           .build();
 
       initWeex();
+
+        SkinManager.getInstance().init(this);
+        SkinManager.getInstance().load();
     }
 
   private void initWeex() {

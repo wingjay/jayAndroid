@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:skin="http://schemas.android.com/android/skin"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text"
+        android:textColor="@color/colorPrimary"
+        android:background="@color/colorAccent"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:text="将要被换肤"
+        skin:enable="true"
+        />
+
+    <Button
+        android:id="@+id/change_skin"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="@color/color_title_bar_bg"
+        android:background="@color/color_app_bg"
+        android:text="换"
+        skin:enable="true"
+        />
+
+</LinearLayout>

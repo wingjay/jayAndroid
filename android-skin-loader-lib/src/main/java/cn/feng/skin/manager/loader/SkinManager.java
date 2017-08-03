@@ -63,7 +63,7 @@ public class SkinManager implements ISkinLoader{
 	private List<ISkinUpdate> skinObservers;
 	private Context context;
 	private String skinPackageName;
-	private Resources mResources;
+	private Resources mResources; // will be replaced by our Resource object, which already read styles from .skin file
 	private String skinPath;
 	private boolean isDefaultSkin = false;
 	
@@ -158,7 +158,7 @@ public class SkinManager implements ISkinLoader{
 						
 						PackageManager mPm = context.getPackageManager();
 						PackageInfo mInfo = mPm.getPackageArchiveInfo(skinPkgPath, PackageManager.GET_ACTIVITIES);
-						skinPackageName = mInfo.packageName;
+						skinPackageName = mInfo.packageName; // com.example.android_skin_laoder_skin
 
 						AssetManager assetManager = AssetManager.class.newInstance();
 						Method addAssetPath = assetManager.getClass().getMethod("addAssetPath", String.class);

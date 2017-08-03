@@ -9,7 +9,7 @@ public class BackgroundAttr extends SkinAttr {
 
 	@Override
 	public void apply(View view) {
-		
+		//background="@color/abc", "@drawable/abc"
 		if(RES_TYPE_NAME_COLOR.equals(attrValueTypeName)){
 			view.setBackgroundColor(SkinManager.getInstance().getColor(attrValueRefId));
 			Log.i("attr", "_________________________________________________________");
