@@ -77,4 +77,5 @@ dependencies {
   compile 'com.uniquestudio:lowpoly:1.0.0'
   compile 'com.airbnb.android:lottie:1.0.1'
   compile files('libs/cordova-6.1.2.jar')
+  compile project(path: ':android-skin-loader-lib')
 }

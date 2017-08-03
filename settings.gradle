@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':android-skin-loader-sample', ':android-skin-loader-skin', ':android-skin-loader-lib'
 //include ':app', ':blurimageview'
