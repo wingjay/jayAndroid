@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import com.wingjay.jayandroid.BaseActivity;
 import com.wingjay.wingjay_skin_loader.OkSkin;
 import com.wingjay.wingjay_skin_loader.SkinInflaterFactory;
@@ -21,6 +22,15 @@ public class BaseSkinActivity extends BaseActivity implements OnSkinUpdateListen
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        /**
+         * this setFactory must before super.onCreate
+         * 1. super.onCreate will put Factory1 inside -> mFactorySet=true -> deny more Factory1
+         * 2. super.onCreate will put Factory2 inside -> even you put a Factory1 inside,
+         * the Factory2 will execute inflate Before your Factory1.
+         *
+         * refer to {@link AppCompatDelegateImplV9#installViewFactory()}
+         * refer to {@link LayoutInflater#createViewFromTag(int, ViewGroup)}
+         */
         skinInflaterFactory = new SkinInflaterFactory(this);
         LayoutInflater inflater = LayoutInflater.from(this); // shouldn't use LayoutInflater.from(applicationContext)
         try {
@@ -31,6 +41,7 @@ public class BaseSkinActivity extends BaseActivity implements OnSkinUpdateListen
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         super.onCreate(savedInstanceState);
     }
 
