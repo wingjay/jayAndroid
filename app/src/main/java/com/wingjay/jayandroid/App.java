@@ -1,7 +1,7 @@
 package com.wingjay.jayandroid;
 
 import android.app.Application;
-
+import android.content.Context;
 import cn.feng.skin.manager.loader.SkinManager;
 import com.facebook.stetho.Stetho;
 import com.squareup.leakcanary.LeakCanary;
@@ -19,7 +19,7 @@ import com.wingjay.jayandroid.daggerForGlow.fakeApp.component.GlowAppComponent;
 import com.wingjay.jayandroid.daggerForGlow.fakeApp.module.GlowAppModule;
 import com.wingjay.jayandroid.daggerForGlow.fakeForum.component.GlowForumComponent;
 import com.wingjay.jayandroid.weex.WeexImageAdapter;
-
+import com.wingjay.wingjay_skin_loader.OkSkin;
 import io.realm.Realm;
 
 /**
@@ -57,11 +57,17 @@ public class App extends Application implements GlowForumComponentProvider {
 
         SkinManager.getInstance().init(this);
         SkinManager.getInstance().load();
+
+        OkSkin.getInstance().init(this);
     }
 
   private void initWeex() {
     WXSDKEngine.initialize(this,
         new InitConfig.Builder().setImgAdapter(new WeexImageAdapter()).build());
+  }
+
+  public Context getContext() {
+      return this.getApplicationContext();
   }
 
     public AppComponent getAppComponent() {

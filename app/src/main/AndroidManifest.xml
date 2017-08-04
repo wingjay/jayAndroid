@@ -28,6 +28,7 @@
             android:label="@string/title_activity_base" >
         </activity>
 
+        <activity android:name=".skin.JaySkinLoaderDemoActivity" />
         <activity android:name=".skin.AndroidSkinLoaderDemoActivity" />
         <activity android:name=".skin.SkinActivity" />
         <activity android:name=".daggerForGlow.fakeApp.DaggerForGlowAppActivity"/>

@@ -29,6 +29,7 @@ import com.wingjay.jayandroid.realm.RealmIntroActivity;
 import com.wingjay.jayandroid.retrofitOkhttpUpgrade.RetrofitOkhttpUpgradeActivity;
 import com.wingjay.jayandroid.rxjava.RxJavaActivity;
 import com.wingjay.jayandroid.skin.AndroidSkinLoaderDemoActivity;
+import com.wingjay.jayandroid.skin.JaySkinLoaderDemoActivity;
 import com.wingjay.jayandroid.skin.SkinActivity;
 import com.wingjay.jayandroid.statusbar.StatusBarActivity;
 import com.wingjay.jayandroid.webview.WebViewActivity;
@@ -59,6 +60,11 @@ public class MainActivity extends BaseActivity {
             }
         });
 //        Log.i(TAG, FastBlurJni.test());
+    }
+
+    @OnClick(R.id.jay_android_skin_loader)
+    void jaySkinLoaderDemo() {
+        startMyActivity(JaySkinLoaderDemoActivity.class);
     }
 
     @OnClick(R.id.android_skin_loader)
