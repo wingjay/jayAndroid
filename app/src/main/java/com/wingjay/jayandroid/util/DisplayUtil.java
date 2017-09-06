@@ -2,6 +2,7 @@ package com.wingjay.jayandroid.util;
 
 import android.content.Context;
 import android.graphics.Point;
+import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 
@@ -28,4 +29,10 @@ public class DisplayUtil {
         return size;
     }
 
+    public static int dp2px(Context context, float dipValue) {
+        DisplayMetrics metrics = new DisplayMetrics();
+        ((WindowManager)context.getSystemService(Context.WINDOW_SERVICE))
+            .getDefaultDisplay().getMetrics(metrics);
+        return (int) (dipValue * metrics.density + 0.5f);
+    }
 }
