@@ -10,7 +10,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import com.wingjay.jayandroid.R;
 import com.wingjay.wingjay_skin_loader.OkSkin;
-import com.wingjay.wingjay_skin_loader.OkSkin.OnSkinLoadListener;
+import com.wingjay.wingjay_skin_loader.listener.OnSkinLoadListener;
 
 /**
  * JaySkinLoaderDemoActivity
