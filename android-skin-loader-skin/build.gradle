@@ -12,7 +12,7 @@ android {
         }
     }
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion '26'
     defaultConfig {
         applicationId "com.example.android_skin_laoder_skin"
         minSdkVersion 15
