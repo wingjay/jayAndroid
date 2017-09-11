@@ -15,6 +15,8 @@
     <color name="light_purple">#EEEFFA</color>
     <color name="white">@android:color/white</color>
 
+    <color name="alpha_xiamired">#B3F33C5B</color>
+    <color name="xiamired">#F33C5B</color>
 
     <!--skin starts-->
     <color name="colorPrimary">#3F4551</color>

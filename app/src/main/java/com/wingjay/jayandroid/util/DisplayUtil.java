@@ -29,7 +29,7 @@ public class DisplayUtil {
         return size;
     }
 
-    public static int dp2px(Context context, float dipValue) {
+    public static int dip2px(Context context, float dipValue) {
         DisplayMetrics metrics = new DisplayMetrics();
         ((WindowManager)context.getSystemService(Context.WINDOW_SERVICE))
             .getDefaultDisplay().getMetrics(metrics);
