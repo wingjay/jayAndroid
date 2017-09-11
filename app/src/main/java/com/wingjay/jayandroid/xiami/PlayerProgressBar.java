@@ -196,7 +196,8 @@ public class PlayerProgressBar extends View {
         switch (dragDirection) {
             case Left:
                 if (leftDraggingTailGradient == null) {
-                    leftDraggingTailGradient = new LinearGradient(0, floatingBarHeight/2,
+                    leftDraggingTailGradient = new LinearGradient(floatingBarWidth + floatingBarExtraWidth - DisplayUtil.dip2px(getContext(), 60),
+                        floatingBarHeight/2,
                         floatingBarWidth + floatingBarExtraWidth, floatingBarHeight/2,
                         new int[]{floatingBarColor, Color.TRANSPARENT}, null, TileMode.CLAMP);
                 }
@@ -214,7 +215,7 @@ public class PlayerProgressBar extends View {
             case Right:
                 if (rightDraggingTailGradient == null) {
                     rightDraggingTailGradient = new LinearGradient(0, floatingBarHeight/2,
-                        floatingBarWidth + floatingBarExtraWidth, floatingBarHeight/2,
+                        DisplayUtil.dip2px(getContext(), 60), floatingBarHeight/2,
                         new int[]{Color.TRANSPARENT, floatingBarColor}, null, TileMode.CLAMP);
                 }
                 floatingBarPaint.setShader(rightDraggingTailGradient);
