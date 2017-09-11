@@ -48,16 +48,13 @@ public class PlayerProgressBar extends View {
 
     private static final int DEFAULT_HEIGHT = 70;
     private static final int FLOATING_BAR_HEIGHT = 30;
+    private final int FLOATING_BAR_PADDING = DisplayUtil.dip2px(getContext(), 10);
     private static final int CONTROL_BAR_HEIGHT = 20;
-    private final int CONTROL_BAR_PADDING = DisplayUtil.dip2px(getContext(), 4);
-    private final int FLOATING_BAR_PADDING = DisplayUtil.dip2px(getContext(), 8);
 
     private int width; // whole view
     private final int SCREEN_WIDTH = DisplayUtil.getScreenWidth(getContext());
     private final int height = DisplayUtil.dip2px(getContext(), DEFAULT_HEIGHT); // 整个view高度
     private final int bottomAreaHeight = DisplayUtil.dip2px(getContext(), DEFAULT_HEIGHT - FLOATING_BAR_HEIGHT); //下半部分的高度
-    private final int floatingBarHeight = DisplayUtil.dip2px(getContext(), FLOATING_BAR_HEIGHT);
-    private final int floatingBarExtraWidth = DisplayUtil.dip2px(getContext(), 20); // 滑动时的渐变尾巴更长一点
 
     // track line
     private int maxTrackLineWidth;
@@ -66,6 +63,7 @@ public class PlayerProgressBar extends View {
 
     // controlBar
     private Rect controlArea = new Rect();
+    private final int CONTROL_BAR_PADDING = DisplayUtil.dip2px(getContext(), 5);
     private final int controlBarHeight = DisplayUtil.dip2px(getContext(), CONTROL_BAR_HEIGHT);
     private int controlBarWidth; // based on text length
     private int floatingBarWidth;
@@ -77,7 +75,9 @@ public class PlayerProgressBar extends View {
         (RotateDrawable) ContextCompat.getDrawable(getContext(), R.drawable.loading_circle);
     private ValueAnimator loadingAnimator;
     private int LOADING_IMAGE_SIZE = DisplayUtil.dip2px(getContext(), 10);
-    private int LOADING_IMAGE_PADDING = DisplayUtil.dip2px(getContext(), 3);
+    private int LOADING_IMAGE_PADDING = DisplayUtil.dip2px(getContext(), 1);
+    private final int floatingBarHeight = DisplayUtil.dip2px(getContext(), FLOATING_BAR_HEIGHT);
+    private final int floatingBarExtraWidth = DisplayUtil.dip2px(getContext(), 40); // 滑动时的渐变尾巴更长一点
 
     private Paint trackLinePaint;
     private Paint controlPaint;
@@ -195,7 +195,6 @@ public class PlayerProgressBar extends View {
     private void drawFloatingBar(Canvas canvas) {
         switch (dragDirection) {
             case Left:
-
                 if (leftDraggingTailGradient == null) {
                     leftDraggingTailGradient = new LinearGradient(0, floatingBarHeight/2,
                         floatingBarWidth + floatingBarExtraWidth, floatingBarHeight/2,
@@ -247,7 +246,6 @@ public class PlayerProgressBar extends View {
      */
     private int getFloatingBarLeftX() {
         int controlBarCenterX = currentTrackLineWidth + (controlBarWidth / 2);
-        //int floatingTextWidth = (int) floatingBarTimePaint.measureText(controlBarText());
         int floatingBarLeftX = controlBarCenterX - (floatingBarWidth / 2);
         if (floatingBarLeftX < 0) {
             return 0;
