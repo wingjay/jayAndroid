@@ -243,10 +243,11 @@ public class PlayerProgressBar extends View {
     }
 
     /**
-     * FloatingBar左边界，要确保不能画到屏幕外。
+     * FloatingBar左边界：文字与controlBar文字居中
      */
     private int getFloatingBarLeftX() {
         int controlBarCenterX = currentTrackLineWidth + (controlBarWidth / 2);
+        //int floatingTextWidth = (int) floatingBarTimePaint.measureText(controlBarText());
         int floatingBarLeftX = controlBarCenterX - (floatingBarWidth / 2);
         if (floatingBarLeftX < 0) {
             return 0;
@@ -287,7 +288,7 @@ public class PlayerProgressBar extends View {
                     }
                     updateCurrentTime(lastX, nowX);
                     if (onPlayerDragListener != null) {
-                        onPlayerDragListener.onDrag(100 * currentTime / totalTime, false);
+                        onPlayerDragListener.onDrag((int) (100 * currentPercent()), false);
                     }
                     lastX = nowX;
                 }
@@ -298,7 +299,7 @@ public class PlayerProgressBar extends View {
                 dragDirection = DragDirection.None;
                 updateCurrentTime(lastX, nowX);
                 if (onPlayerDragListener != null) {
-                    onPlayerDragListener.onDrag(100 * currentTime / totalTime, true);
+                    onPlayerDragListener.onDrag((int) (100 * currentPercent()), true);
                 }
                 break;
         }
@@ -420,8 +421,8 @@ public class PlayerProgressBar extends View {
         }
     }
 
-    private double currentPercent() {
-        return currentTime / (double) totalTime;
+    private float currentPercent() {
+        return currentTime / (float) totalTime;
     }
 
     private String controlBarText() {
