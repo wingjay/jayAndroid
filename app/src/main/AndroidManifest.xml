@@ -34,6 +34,8 @@
         <activity android:name=".daggerForGlow.fakeApp.DaggerForGlowAppActivity"/>
         <activity android:name=".daggerForGlow.fakeForum.DaggerForGlowForumActivity"/>
 
+
+        <activity android:name=".xiami.XiamiActivity" />
         <activity android:name=".dagger.host.DaggerHostActivity"/>
         <activity android:name=".rxjava.RxJavaActivity"/>
         <activity android:name=".drag.DragActivity"/>

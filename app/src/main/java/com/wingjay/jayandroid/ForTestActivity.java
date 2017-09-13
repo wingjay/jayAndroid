@@ -1,45 +1,74 @@
 package com.wingjay.jayandroid;
 
 import android.os.Bundle;
-import android.support.annotation.IntRange;
-import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import com.wingjay.jayandroid.xiami.PlayerProgressBar;
-import com.wingjay.jayandroid.xiami.PlayerProgressBar.OnPlayerDragListener;
+import android.view.View.OnTouchListener;
+import android.widget.Toast;
 
 /**
  * Created by Jay on 5/10/17.
  */
 
 public class ForTestActivity extends BaseActivity {
-  boolean loading = true;
+
+  private View parent;
+  private View floatingView, showHideBt, bt2, bt3, bt3Container;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_test);
-    final PlayerProgressBar playerProgressBar = (PlayerProgressBar) findViewById(R.id.playerbar);
+    parent = findViewById(R.id.parent);
+    floatingView = findViewById(R.id.floating_view);
+    showHideBt = findViewById(R.id.bt1);
+    bt2 = findViewById(R.id.bt2);
+    bt3 = findViewById(R.id.bt3);
+    bt3Container = findViewById(R.id.bt3_container);
 
-    playerProgressBar.setLoading(loading);
-    playerProgressBar.setTime(100, 300);
-    playerProgressBar.setOnPlayerDragListener(new OnPlayerDragListener() {
-      @Override
-      public void onDrag(@IntRange(from = 0, to = 100) int progress, boolean isDragEnd) {
-        Log.e("jaydebug", "drag progress: " + progress + ", isDragEnd: " + isDragEnd);
-      }
-    });
-    findViewById(R.id.action).setOnClickListener(new OnClickListener() {
+    showHideBt.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View v) {
-        loading = !loading;
-        playerProgressBar.setLoading(loading);
+        toggle();
       }
     });
-
+    bt2.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Toast.makeText(ForTestActivity.this, "bt2", Toast.LENGTH_SHORT).show();
+      }
+    });
+    bt3.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Toast.makeText(ForTestActivity.this, "bt3", Toast.LENGTH_SHORT).show();
+      }
+    });
   }
 
-  @Override
-  protected void onDestroy() {
-    super.onDestroy();
+  private void toggle() {
+    floatingView.setVisibility(floatingView.getVisibility() == View.VISIBLE ? View.GONE : View.VISIBLE);
+    if (floatingView.getVisibility() == View.VISIBLE) {
+      bt3Container.setOnClickListener(new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+          floatingView.setVisibility(View.GONE);
+        }
+      });
+      parent.setOnTouchListener(new OnTouchListener() {
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+          if (floatingView.getVisibility() == View.VISIBLE) {
+            floatingView.setVisibility(View.GONE);
+            return true;
+          }
+          return false;
+        }
+      });
+    } else {
+      bt3Container.setClickable(false);
+      parent.setOnTouchListener(null);
+    }
   }
 }

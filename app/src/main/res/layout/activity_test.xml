@@ -1,17 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
+              android:id="@+id/parent"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <com.wingjay.jayandroid.xiami.PlayerProgressBar
-        android:id="@+id/playerbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
     <Button
-        android:id="@+id/action"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Action"
+        android:id="@+id/bt1"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="show/hide"
         />
-</LinearLayout>
+
+    <Button
+        android:id="@+id/bt2"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="bt2"
+        android:layout_toEndOf="@+id/bt1"
+        android:layout_toRightOf="@+id/bt1"
+        />
+
+    <View
+        android:id="@+id/floating_view"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/alpha_xiamired"
+        />
+
+    <View
+        android:id="@+id/bt3"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="bt3"
+        android:layout_below="@+id/bt2"
+        android:background="@color/colorAccent"
+        />
+
+    <FrameLayout
+        android:id="@+id/bt3_container"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:background="#33000000"
+        android:layout_below="@+id/bt2"/>
+
+</RelativeLayout>
