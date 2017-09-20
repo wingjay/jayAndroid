@@ -12,6 +12,12 @@
         android:layout_height="match_parent">
 
         <Button
+            android:id="@+id/xiami"
+            android:text="xiami"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
             android:id="@+id/jay_android_skin_loader"
             android:text="Jay Android Skin Loader Demo"
             android:layout_width="match_parent"

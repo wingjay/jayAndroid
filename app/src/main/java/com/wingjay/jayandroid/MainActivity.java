@@ -36,7 +36,7 @@ import com.wingjay.jayandroid.webview.WebViewActivity;
 import com.wingjay.jayandroid.weex.HelloWeexActivity;
 
 import butterknife.OnClick;
-
+import com.wingjay.jayandroid.xiami.XiamiActivity;
 
 public class MainActivity extends BaseActivity {
 
@@ -60,6 +60,11 @@ public class MainActivity extends BaseActivity {
             }
         });
 //        Log.i(TAG, FastBlurJni.test());
+    }
+
+    @OnClick(R.id.xiami)
+    void xiami() {
+        startMyActivity(XiamiActivity.class);
     }
 
     @OnClick(R.id.jay_android_skin_loader)

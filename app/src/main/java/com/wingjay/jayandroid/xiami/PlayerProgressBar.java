@@ -10,6 +10,8 @@ import android.graphics.Paint;
 import android.graphics.Paint.Align;
 import android.graphics.Path;
 import android.graphics.Path.Direction;
+import android.graphics.PorterDuff.Mode;
+import android.graphics.PorterDuffColorFilter;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader.TileMode;
@@ -122,9 +124,11 @@ public class PlayerProgressBar extends View {
     private void init() {
         trackLinePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         trackLinePaint.setStrokeWidth(5);
-
+        trackLinePaint.setColorFilter(new PorterDuffColorFilter(trackColor, Mode.SRC_IN));
         controlPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         controlPaint.setColor(Color.BLACK);
+        controlPaint.setShadowLayer(5, 2, 2, 0xB2000000);
+        setLayerType(LAYER_TYPE_SOFTWARE, null);
 
         timePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         timePaint.setColor(Color.WHITE);
@@ -193,6 +197,7 @@ public class PlayerProgressBar extends View {
      * Y轴
      */
     private void drawFloatingBar(Canvas canvas) {
+        floatingBarPaint.setColorFilter(new PorterDuffColorFilter(floatingBarColor, Mode.DST_IN));
         switch (dragDirection) {
             case Left:
                 if (leftDraggingTailGradient == null) {
@@ -231,9 +236,12 @@ public class PlayerProgressBar extends View {
                 canvas.translate((floatingBarWidth + floatingBarExtraWidth)/2, floatingBarHeight/2);
                 break;
             case TAP:
+                floatingBarPaint.setColorFilter(null);
+                floatingBarPaint.setShadowLayer(10, 4, 4, 0xB2000000);
                 RectF rectF = new RectF(0, 0, floatingBarWidth, floatingBarHeight);
                 canvas.drawRoundRect(rectF, floatingBarHeight/2, floatingBarHeight/2, floatingBarPaint);
                 canvas.translate(floatingBarWidth/2, floatingBarHeight/2);
+                floatingBarPaint.clearShadowLayer();
                 break;
             case None:
                 return;
