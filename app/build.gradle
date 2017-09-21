@@ -3,13 +3,13 @@ apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'realm-android'
 
 android {
-  compileSdkVersion 25
+  compileSdkVersion 26
   buildToolsVersion '26'
 
   defaultConfig {
     applicationId "com.wingjay.jayandroid"
     minSdkVersion 15
-    targetSdkVersion 25
+    targetSdkVersion 26
     renderscriptTargetApi 19
     renderscriptSupportModeEnabled true
     versionCode 1
@@ -34,12 +34,32 @@ android {
   }
 }
 
+buildscript {
+  repositories {
+    maven {
+      url 'https://maven.google.com/'
+      name 'Google'
+    }
+  }
+}
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+  maven {
+    url 'https://maven.google.com/'
+    name 'Google'
+  }
+}
+
+def SUPPORT_VERSION = "26.1.0"
+
 dependencies {
   compile fileTree(include: ['*.jar'], dir: 'libs')
-  compile 'com.android.support:appcompat-v7:25.1.1'
-  compile 'com.android.support:recyclerview-v7:25.1.1'
-  compile 'com.android.support:support-v4:25.1.1'
-  compile 'com.android.support:appcompat-v7:25.1.1'
+
+  compile 'com.android.support:appcompat-v7:' + SUPPORT_VERSION
+  compile 'com.android.support:recyclerview-v7:' + SUPPORT_VERSION
+  compile 'com.android.support:support-v4:' + SUPPORT_VERSION
   compile 'com.loopj.android:android-async-http:1.4.8'
   compile 'com.google.code.gson:gson:1.7.2'
   compile 'com.jakewharton:butterknife:7.0.1'
