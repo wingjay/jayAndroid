@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:background="@drawable/medium_nm_3"
+              android:layout_height="80dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Old School Album"
+        android:textColor="@color/white"
+        android:background="#88000000"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        />
+
+</LinearLayout>
