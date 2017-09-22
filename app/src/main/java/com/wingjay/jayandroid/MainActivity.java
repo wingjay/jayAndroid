@@ -27,6 +27,7 @@ import com.wingjay.jayandroid.perisope.PerisopeActivity;
 import com.wingjay.jayandroid.qqitem.DragableActivity;
 import com.wingjay.jayandroid.realm.RealmIntroActivity;
 import com.wingjay.jayandroid.retrofitOkhttpUpgrade.RetrofitOkhttpUpgradeActivity;
+import com.wingjay.jayandroid.richlist.test.RichListViewActivity;
 import com.wingjay.jayandroid.rxjava.RxJavaActivity;
 import com.wingjay.jayandroid.skin.AndroidSkinLoaderDemoActivity;
 import com.wingjay.jayandroid.skin.JaySkinLoaderDemoActivity;
@@ -60,6 +61,11 @@ public class MainActivity extends BaseActivity {
             }
         });
 //        Log.i(TAG, FastBlurJni.test());
+    }
+
+    @OnClick(R.id.rich_test)
+    void richTest() {
+        startMyActivity(RichListViewActivity.class);
     }
 
     @OnClick(R.id.xiami)

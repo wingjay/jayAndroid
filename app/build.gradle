@@ -60,6 +60,8 @@ dependencies {
   compile 'com.android.support:appcompat-v7:' + SUPPORT_VERSION
   compile 'com.android.support:recyclerview-v7:' + SUPPORT_VERSION
   compile 'com.android.support:support-v4:' + SUPPORT_VERSION
+  compile "android.arch.paging:runtime:1.0.0-alpha2"
+
   compile 'com.loopj.android:android-async-http:1.4.8'
   compile 'com.google.code.gson:gson:1.7.2'
   compile 'com.jakewharton:butterknife:7.0.1'
