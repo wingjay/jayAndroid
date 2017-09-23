@@ -1,6 +1,15 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+
+  ext.deps = [
+          javapoet: 'com.squareup:javapoet:1.9.0',
+          'auto': [
+                  'service': 'com.google.auto.service:auto-service:1.0-rc3',
+                  'common': 'com.google.auto:auto-common:0.8',
+          ],
+  ]
+
   repositories {
     jcenter()
   }
@@ -14,6 +23,7 @@ buildscript {
     // in the individual module build.gradle files
   }
 }
+
 
 allprojects {
   repositories {

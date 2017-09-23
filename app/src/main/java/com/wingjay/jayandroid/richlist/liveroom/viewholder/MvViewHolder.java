@@ -5,8 +5,8 @@ import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.example.lego_annotation.RichViewHolder;
 import com.wingjay.jayandroid.R;
-import com.wingjay.jayandroid.richlist.uibase.RichViewHolder;
 import com.wingjay.jayandroid.richlist.liveroom.bean.Mv;
 import com.wingjay.jayandroid.richlist.uibase.IRichViewHolder;
 

@@ -1,0 +1,11 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation project(':lego-annotation')
+    implementation deps.auto.common
+    api deps.javapoet
+    compileOnly deps.auto.service
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"

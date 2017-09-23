@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'realm-android'
+apply plugin: 'android-apt'
 
 android {
   compileSdkVersion 26
@@ -99,6 +100,10 @@ dependencies {
   compile 'com.uniquestudio:lowpoly:1.0.0'
   compile 'com.airbnb.android:lottie:1.0.1'
   compile files('libs/cordova-6.1.2.jar')
+
+  //annotation
+  compile project(':lego-annotation')
+  apt project(':lego-processor')
 
 //  compile project(path: ':android-skin-loader-lib')
 //  compile project(path: ':wingjay-skin-loader')
