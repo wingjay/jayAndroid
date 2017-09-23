@@ -1,4 +1,4 @@
-package com.wingjay.jayandroid.richlist.viewholder;
+package com.wingjay.jayandroid.richlist.v5.viewholder;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.wingjay.jayandroid.R;
-import com.wingjay.jayandroid.richlist.RichViewHolder;
-import com.wingjay.jayandroid.richlist.bean.Artist;
-import com.wingjay.jayandroid.richlist.listview.IRichListViewHolder;
+import com.wingjay.jayandroid.richlist.uibase.RichViewHolder;
+import com.wingjay.jayandroid.richlist.v5.bean.Artist;
+import com.wingjay.jayandroid.richlist.uibase.IRichViewHolder;
 
 /**
  * FemaleArtistViewHolder
@@ -17,8 +17,8 @@ import com.wingjay.jayandroid.richlist.listview.IRichListViewHolder;
  * @author wingjay
  * @date 2017/09/21
  */
-@RichViewHolder(key = "FemaleArtistViewHolder")
-public class FemaleArtistViewHolder implements IRichListViewHolder {
+@RichViewHolder(key = "FemaleArtistViewHolder", bean = Artist.class)
+public class FemaleArtistViewHolder implements IRichViewHolder {
     private Context context;
     private TextView name;
 
@@ -27,14 +27,14 @@ public class FemaleArtistViewHolder implements IRichListViewHolder {
     }
 
     @Override
-    public View initView(ViewGroup root) {
-        View view = LayoutInflater.from(context).inflate(R.layout.vh_female_artist, root, false);
+    public View initView(ViewGroup parent) {
+        View view = LayoutInflater.from(context).inflate(R.layout.vh_female_artist, parent, false);
         name = view.findViewById(R.id.name);
         return view;
     }
 
     @Override
-    public void bindData(@NonNull Object data) {
+    public void bindData(@NonNull Object data, int position) {
         if (data instanceof Artist) {
             Artist artist = (Artist) data;
             name.setText(artist.name);

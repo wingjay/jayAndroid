@@ -4,14 +4,10 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.List;
 
-import android.app.ActivityManager.RunningAppProcessInfo;
-import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
-import cn.feng.skin.manager.util.StringUtils;
 
 /**
  * ThreadUtil
@@ -42,34 +38,34 @@ public class ThreadUtil {
         }
     }
 
-    public static String getCurProcessName(Context context) {
-        if (!StringUtils.isEmpty(processName)) {
-            return processName;
-        }
-        int pid = android.os.Process.myPid();
-        android.app.ActivityManager mActivityManager = (android.app.ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-        List<RunningAppProcessInfo> processInfos = mActivityManager.getRunningAppProcesses();
-        if (processInfos != null && processInfos.size() > 0) {
-            for (android.app.ActivityManager.RunningAppProcessInfo appProcess : processInfos) {
-                if (appProcess.pid == pid) {
-                    processName = appProcess.processName;
-                    break;
-                }
-            }
-        }
-        if(StringUtils.isEmpty(processName)){
-            processName = getCurProcessName();
-        }
-        return processName;
-    }
+    //public static String getCurProcessName(Context context) {
+    //    if (!StringUtils.isEmpty(processName)) {
+    //        return processName;
+    //    }
+    //    int pid = android.os.Process.myPid();
+    //    android.app.ActivityManager mActivityManager = (android.app.ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+    //    List<RunningAppProcessInfo> processInfos = mActivityManager.getRunningAppProcesses();
+    //    if (processInfos != null && processInfos.size() > 0) {
+    //        for (android.app.ActivityManager.RunningAppProcessInfo appProcess : processInfos) {
+    //            if (appProcess.pid == pid) {
+    //                processName = appProcess.processName;
+    //                break;
+    //            }
+    //        }
+    //    }
+    //    if(StringUtils.isEmpty(processName)){
+    //        processName = getCurProcessName();
+    //    }
+    //    return processName;
+    //}
 
-    public static boolean isInUIProcess(Context context) {
-        String curProcessName = getCurProcessName(context);
-        if (!StringUtils.isEmpty(processName)) {
-            return curProcessName.equals(context.getApplicationContext().getPackageName());
-        }
-        return false;
-    }
+    //public static boolean isInUIProcess(Context context) {
+    //    String curProcessName = getCurProcessName(context);
+    //    if (!StringUtils.isEmpty(processName)) {
+    //        return curProcessName.equals(context.getApplicationContext().getPackageName());
+    //    }
+    //    return false;
+    //}
 
 
     public static Handler startHandlerThread(String threadName){

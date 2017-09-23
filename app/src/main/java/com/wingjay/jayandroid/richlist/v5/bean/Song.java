@@ -1,4 +1,4 @@
-package com.wingjay.jayandroid.richlist.bean;
+package com.wingjay.jayandroid.richlist.v5.bean;
 
 /**
  * Song

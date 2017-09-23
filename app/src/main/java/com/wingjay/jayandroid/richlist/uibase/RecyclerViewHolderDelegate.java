@@ -1,9 +1,8 @@
-package com.wingjay.jayandroid.richlist.recyclerview;
+package com.wingjay.jayandroid.richlist.uibase;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.View;
-import com.wingjay.jayandroid.richlist.listview.IRichListViewHolder;
 
 /**
  * IRichRecyclerViewHolder
@@ -12,19 +11,19 @@ import com.wingjay.jayandroid.richlist.listview.IRichListViewHolder;
  * @date 2017/09/22
  */
 public class RecyclerViewHolderDelegate extends ViewHolder {
-    private IRichListViewHolder realViewHolder;
+    private IRichViewHolder realViewHolder;
 
     public RecyclerViewHolderDelegate(@NonNull View itemView,
-                                      @NonNull IRichListViewHolder realViewHolder) {
+                                      @NonNull IRichViewHolder realViewHolder) {
         super(itemView);
         this.realViewHolder = realViewHolder;
     }
 
-    public void bindData(Object data) {
+    public void bindData(Object data, int position) {
         if (data instanceof RichItem) {
-            realViewHolder.bindData(((RichItem) data).getData());
+            realViewHolder.bindData(((RichItem) data).getData(), position);
         } else {
-            realViewHolder.bindData(data);
+            realViewHolder.bindData(data, position);
         }
     }
 

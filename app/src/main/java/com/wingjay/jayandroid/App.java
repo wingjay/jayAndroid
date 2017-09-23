@@ -2,7 +2,6 @@ package com.wingjay.jayandroid;
 
 import android.app.Application;
 import android.content.Context;
-import cn.feng.skin.manager.loader.SkinManager;
 import com.facebook.stetho.Stetho;
 import com.squareup.leakcanary.LeakCanary;
 import com.taobao.weex.InitConfig;
@@ -18,23 +17,30 @@ import com.wingjay.jayandroid.daggerForGlow.fakeApp.component.DaggerGlowAppCompo
 import com.wingjay.jayandroid.daggerForGlow.fakeApp.component.GlowAppComponent;
 import com.wingjay.jayandroid.daggerForGlow.fakeApp.module.GlowAppModule;
 import com.wingjay.jayandroid.daggerForGlow.fakeForum.component.GlowForumComponent;
+import com.wingjay.jayandroid.richlist.uibase.IRichProvider;
+import com.wingjay.jayandroid.richlist.uibase.IViewHolderMapper;
+import com.wingjay.jayandroid.richlist.uibase.RichViewHolderFactory;
+import com.wingjay.jayandroid.richlist.v5.ViewHolderMapperImpl;
 import com.wingjay.jayandroid.weex.WeexImageAdapter;
-import com.wingjay.wingjay_skin_loader.OkSkin;
 import io.realm.Realm;
 
 /**
  * Created by Jay on 4/20/16.
  */
-public class App extends Application implements GlowForumComponentProvider {
+public class App extends Application implements GlowForumComponentProvider, IRichProvider {
 
     AppComponent appComponent;
     SubComponent subComponent;
 
     GlowAppComponent glowAppComponent;
 
+    ViewHolderMapperImpl viewHolderMapper = new ViewHolderMapperImpl();
+
     @Override
     public void onCreate() {
       super.onCreate();
+
+        RichViewHolderFactory.init(this);
 
       Realm.init(this);
       Stetho.initializeWithDefaults(this);
@@ -55,10 +61,10 @@ public class App extends Application implements GlowForumComponentProvider {
 
       initWeex();
 
-        SkinManager.getInstance().init(this);
-        SkinManager.getInstance().load();
-
-        OkSkin.getInstance().init(this);
+        //SkinManager.getInstance().init(this);
+        //SkinManager.getInstance().load();
+        //
+        //OkSkin.getInstance().init(this);
     }
 
   private void initWeex() {
@@ -85,5 +91,10 @@ public class App extends Application implements GlowForumComponentProvider {
     @Override
     public GlowForumComponent getGlowForumComponent() {
         return glowAppComponent;
+    }
+
+    @Override
+    public IViewHolderMapper getIViewHolderMapper() {
+        return viewHolderMapper;
     }
 }

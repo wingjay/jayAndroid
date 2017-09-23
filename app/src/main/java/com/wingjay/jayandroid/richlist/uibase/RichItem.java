@@ -1,4 +1,4 @@
-package com.wingjay.jayandroid.richlist.recyclerview;
+package com.wingjay.jayandroid.richlist.uibase;
 
 /**
  * RichItem

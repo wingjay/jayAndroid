@@ -3,7 +3,7 @@ package com.wingjay.jayandroid;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
+import butterknife.OnClick;
 import com.wingjay.jayandroid.abot.ABotActivity;
 import com.wingjay.jayandroid.animation.searchbar.LottieActivity;
 import com.wingjay.jayandroid.animation.searchbar.TransitionAnimationFromActivity;
@@ -27,7 +27,7 @@ import com.wingjay.jayandroid.perisope.PerisopeActivity;
 import com.wingjay.jayandroid.qqitem.DragableActivity;
 import com.wingjay.jayandroid.realm.RealmIntroActivity;
 import com.wingjay.jayandroid.retrofitOkhttpUpgrade.RetrofitOkhttpUpgradeActivity;
-import com.wingjay.jayandroid.richlist.test.RichListViewActivity;
+import com.wingjay.jayandroid.richlist.v5.RichListActivity;
 import com.wingjay.jayandroid.rxjava.RxJavaActivity;
 import com.wingjay.jayandroid.skin.AndroidSkinLoaderDemoActivity;
 import com.wingjay.jayandroid.skin.JaySkinLoaderDemoActivity;
@@ -35,8 +35,6 @@ import com.wingjay.jayandroid.skin.SkinActivity;
 import com.wingjay.jayandroid.statusbar.StatusBarActivity;
 import com.wingjay.jayandroid.webview.WebViewActivity;
 import com.wingjay.jayandroid.weex.HelloWeexActivity;
-
-import butterknife.OnClick;
 import com.wingjay.jayandroid.xiami.XiamiActivity;
 
 public class MainActivity extends BaseActivity {
@@ -65,7 +63,7 @@ public class MainActivity extends BaseActivity {
 
     @OnClick(R.id.rich_test)
     void richTest() {
-        startMyActivity(RichListViewActivity.class);
+        startMyActivity(RichListActivity.class);
     }
 
     @OnClick(R.id.xiami)

@@ -12,13 +12,13 @@ import android.widget.Button;
 import android.widget.ListView;
 import com.wingjay.jayandroid.BaseActivity;
 import com.wingjay.jayandroid.R;
-import com.wingjay.jayandroid.richlist.bean.Artist;
-import com.wingjay.jayandroid.richlist.bean.LocalSong;
-import com.wingjay.jayandroid.richlist.bean.Mv;
-import com.wingjay.jayandroid.richlist.bean.Song;
-import com.wingjay.jayandroid.richlist.listview.BaseRichListAdapter;
-import com.wingjay.jayandroid.richlist.recyclerview.BaseRecyclerAdapter;
-import com.wingjay.jayandroid.richlist.recyclerview.RichItem;
+import com.wingjay.jayandroid.richlist.liveroom.bean.Mv;
+import com.wingjay.jayandroid.richlist.test.listview.BaseRichListAdapter;
+import com.wingjay.jayandroid.richlist.uibase.BaseRecyclerAdapter;
+import com.wingjay.jayandroid.richlist.uibase.RichItem;
+import com.wingjay.jayandroid.richlist.v5.bean.Artist;
+import com.wingjay.jayandroid.richlist.v5.bean.LocalSong;
+import com.wingjay.jayandroid.richlist.v5.bean.Song;
 
 /**
  * RichListViewActivity

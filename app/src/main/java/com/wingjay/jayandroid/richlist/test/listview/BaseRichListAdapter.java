@@ -1,4 +1,4 @@
-package com.wingjay.jayandroid.richlist.listview;
+package com.wingjay.jayandroid.richlist.test.listview;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
@@ -9,7 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.wingjay.jayandroid.richlist.recyclerview.RichViewHolderFactory;
+import com.wingjay.jayandroid.richlist.uibase.IRichViewHolder;
+import com.wingjay.jayandroid.richlist.uibase.RichViewHolderFactory;
 
 /**
  * BaseRichListAdapter:
@@ -26,7 +27,7 @@ public class BaseRichListAdapter extends BaseAdapter {
     private final Context context;
     private List<Object> dataList = new ArrayList<>(0);
 
-    private List<Class<? extends IRichListViewHolder>> viewTypeList;
+    private List<Class<? extends IRichViewHolder>> viewTypeList;
 
     public BaseRichListAdapter(Context context) {
         this.context = context;
@@ -46,7 +47,7 @@ public class BaseRichListAdapter extends BaseAdapter {
 
         viewTypeList = new ArrayList<>(dataList.size());
         for (Object d : dataList) {
-            Class<? extends IRichListViewHolder> vh = RichViewHolderFactory.match(d);
+            Class<? extends IRichViewHolder> vh = RichViewHolderFactory.match(d);
             if (!viewTypeList.contains(vh)) {
                 viewTypeList.add(vh);
             }
@@ -71,13 +72,13 @@ public class BaseRichListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
         Object data = getItem(position);
-        IRichListViewHolder viewHolder;
+        IRichViewHolder viewHolder;
         if (view == null || !(view.getTag().getClass().equals(viewTypeList.get(getItemViewType(position))))) {
-            Class<? extends IRichListViewHolder> clazz = viewTypeList.get(getItemViewType(position));
+            Class<? extends IRichViewHolder> clazz = viewTypeList.get(getItemViewType(position));
             try {
                 Constructor constructor = clazz.getConstructor(Context.class);
                 constructor.setAccessible(true);
-                viewHolder = (IRichListViewHolder) constructor.newInstance(viewGroup.getContext());
+                viewHolder = (IRichViewHolder) constructor.newInstance(viewGroup.getContext());
                 // lots of item keeps recreating, bad performance.
                 Log.e(TAG, String.format("initView for position: %s, viewHolder: %s",
                     position, viewHolder.getClass().getSimpleName()));
@@ -91,8 +92,8 @@ public class BaseRichListAdapter extends BaseAdapter {
         if (view == null) {
             return null;
         }
-        viewHolder = (IRichListViewHolder) view.getTag();
-        viewHolder.bindData(data);
+        viewHolder = (IRichViewHolder) view.getTag();
+        viewHolder.bindData(data, );
         return view;
     }
 

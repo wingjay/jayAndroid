@@ -35,6 +35,8 @@
         <activity android:name=".daggerForGlow.fakeForum.DaggerForGlowForumActivity"/>
 
 
+        <activity android:name=".richlist.liveroom.LiveRoomActivity" />
+        <activity android:name=".richlist.v5.RichListActivity"/>
         <activity android:name=".richlist.test.RichListViewActivity" />
         <activity android:name=".xiami.XiamiActivity" />
         <activity android:name=".dagger.host.DaggerHostActivity"/>

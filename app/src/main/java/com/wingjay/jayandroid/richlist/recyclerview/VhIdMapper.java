@@ -2,7 +2,7 @@ package com.wingjay.jayandroid.richlist.recyclerview;
 
 import java.util.HashMap;
 
-import com.wingjay.jayandroid.richlist.listview.IRichListViewHolder;
+import com.wingjay.jayandroid.richlist.uibase.IRichViewHolder;
 
 /**
  * VhIdMapper
@@ -12,20 +12,20 @@ import com.wingjay.jayandroid.richlist.listview.IRichListViewHolder;
  */
 public class VhIdMapper {
 
-    private static HashMap<String, Class<? extends IRichListViewHolder>> viewHolderMap = new HashMap<>();
+    private static HashMap<String, Class<? extends IRichViewHolder>> viewHolderMap = new HashMap<>();
 
     public static void init() {
     }
 
-    //public static void register(@NonNull IRichListViewHolder viewHolder) {
-    //    Class<? extends IRichListViewHolder> clazz = viewHolder.getClass();
+    //public static void register(@NonNull IRichViewHolder viewHolder) {
+    //    Class<? extends IRichViewHolder> clazz = viewHolder.getClass();
     //    if (clazz.isAnnotationPresent(RichViewHolder.class)) {
     //        RichViewHolder richViewHolder = clazz.getAnnotation(RichViewHolder.class);
     //        viewHolderMap.put(richViewHolder.key(), clazz);
     //    }
     //}
 
-    public static Class<? extends IRichListViewHolder> idToClass(String id) {
+    public static Class<? extends IRichViewHolder> idToClass(String id) {
         return viewHolderMap.get(id);
         //
         //switch (id) {
