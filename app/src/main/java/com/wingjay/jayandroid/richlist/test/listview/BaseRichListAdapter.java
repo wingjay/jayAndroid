@@ -93,7 +93,7 @@ public class BaseRichListAdapter extends BaseAdapter {
             return null;
         }
         viewHolder = (IRichViewHolder) view.getTag();
-        viewHolder.bindData(data, );
+        viewHolder.bindData(data, position);
         return view;
     }
 
