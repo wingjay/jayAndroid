@@ -21,6 +21,7 @@ import com.wingjay.jayandroid.fastblur.FastBlurActivity;
 import com.wingjay.jayandroid.fragmentstudy.HolderActivity;
 import com.wingjay.jayandroid.fulltextview.FullTextViewActivity;
 import com.wingjay.jayandroid.gesture.GestureActivity;
+import com.wingjay.jayandroid.lifecycle.LifecycleActivity;
 import com.wingjay.jayandroid.lowpoly.LowPolyActivity;
 import com.wingjay.jayandroid.ndkdev.NdkActivity;
 import com.wingjay.jayandroid.perisope.PerisopeActivity;
@@ -59,6 +60,11 @@ public class MainActivity extends BaseActivity {
             }
         });
 //        Log.i(TAG, FastBlurJni.test());
+    }
+
+    @OnClick(R.id.lifecycle)
+    void lifecycle() {
+        startMyActivity(LifecycleActivity.class);
     }
 
     @OnClick(R.id.rich_test)

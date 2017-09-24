@@ -12,6 +12,12 @@
         android:layout_height="match_parent">
 
         <Button
+            android:id="@+id/lifecycle"
+            android:text="Lifecycle Test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
             android:id="@+id/rich_test"
             android:text="Rich List"
             android:layout_width="match_parent"
