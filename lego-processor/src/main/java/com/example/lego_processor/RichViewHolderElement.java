@@ -22,6 +22,15 @@ import com.squareup.javapoet.WildcardTypeName;
  */
 public class RichViewHolderElement {
 
+    private static final String targetPackageName = "com.wingjay.jayandroid.richlist.v5";
+    private static final String targetClassName = "ViewHolderMapperImpl";
+
+    private static final String superInterfacePackageName = "com.wingjay.jayandroid.richlist.uibase";
+    private static final String superInterfaceName = "IViewHolderMapper";
+
+    private static final String paramPackageName = "com.wingjay.jayandroid.richlist.uibase";
+    private static final String paramClassName = "IRichViewHolder";
+
     private List<Pair<String, ClassName>> keyClassNameList;
 
     public RichViewHolderElement() {
@@ -37,11 +46,11 @@ public class RichViewHolderElement {
     }
 
     String getPackageName() {
-        return "com.wingjay.jayandroid.richlist.v5";
+        return targetPackageName;
     }
 
     String getGeneratedClassName() {
-        return "ViewHolderMapperImpl";
+        return targetClassName;
     }
 
     public static List<ExecutableElement> findMethods(Element element, Class<? extends Annotation> clazz) {
@@ -56,7 +65,7 @@ public class RichViewHolderElement {
     }
 
     ClassName superInterfaceName() {
-        return ClassName.get("com.wingjay.jayandroid.richlist.uibase", "IViewHolderMapper");
+        return ClassName.get(superInterfacePackageName, superInterfaceName);
     }
 
     MethodSpec createMatchMethod() {
@@ -80,7 +89,7 @@ public class RichViewHolderElement {
             .addModifiers(Modifier.PUBLIC)
             .addParameter(String.class, "key")
             .returns(ParameterizedTypeName.get(ClassName.get(Class.class),
-                WildcardTypeName.subtypeOf(ClassName.get("com.wingjay.jayandroid.richlist.uibase", "IRichViewHolder"))))
+                WildcardTypeName.subtypeOf(ClassName.get(paramPackageName, paramClassName))))
             .addAnnotation(Override.class)
             .addCode(builder.build())
             .build();
