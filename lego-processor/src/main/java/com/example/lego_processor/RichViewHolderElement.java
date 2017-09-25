@@ -11,8 +11,6 @@ import javax.lang.model.element.Modifier;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.CodeBlock;
 import com.squareup.javapoet.MethodSpec;
-import com.squareup.javapoet.ParameterizedTypeName;
-import com.squareup.javapoet.WildcardTypeName;
 
 /**
  * RichViewHolderElement
@@ -22,7 +20,7 @@ import com.squareup.javapoet.WildcardTypeName;
  */
 public class RichViewHolderElement {
 
-    private static final String targetPackageName = "com.wingjay.jayandroid.richlist.v5";
+    private static final String targetPackageName = "com.wingjay.jayandroid.richlist.uibase";
     private static final String targetClassName = "ViewHolderMapperImpl";
 
     private static final String superInterfacePackageName = "com.wingjay.jayandroid.richlist.uibase";
@@ -77,7 +75,8 @@ public class RichViewHolderElement {
             builder.add("case \"");
             builder.add(pair.first);
             builder.add("\": return ");
-            builder.add("$T.class;\n", pair.second);
+            //builder.add("$T;\n", pair.second.toString());
+            builder.add("\"" + pair.second.toString() + "\";\n");
             builder.unindent();
         }
         builder.indent();
@@ -88,8 +87,9 @@ public class RichViewHolderElement {
         return MethodSpec.methodBuilder("match")
             .addModifiers(Modifier.PUBLIC)
             .addParameter(String.class, "key")
-            .returns(ParameterizedTypeName.get(ClassName.get(Class.class),
-                WildcardTypeName.subtypeOf(ClassName.get(paramPackageName, paramClassName))))
+            .returns(String.class)
+            //.returns(ParameterizedTypeName.get(ClassName.get(Class.class),
+            //    WildcardTypeName.subtypeOf(ClassName.get(paramPackageName, paramClassName))))
             .addAnnotation(Override.class)
             .addCode(builder.build())
             .build();

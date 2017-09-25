@@ -20,7 +20,7 @@ import com.wingjay.jayandroid.daggerForGlow.fakeForum.component.GlowForumCompone
 import com.wingjay.jayandroid.richlist.uibase.IRichProvider;
 import com.wingjay.jayandroid.richlist.uibase.IViewHolderMapper;
 import com.wingjay.jayandroid.richlist.uibase.RichViewHolderFactory;
-import com.wingjay.jayandroid.richlist.v5.ViewHolderMapperImpl;
+import com.wingjay.jayandroid.richlist.uibase.ViewHolderMapperImpl;
 import com.wingjay.jayandroid.weex.WeexImageAdapter;
 import io.realm.Realm;
 

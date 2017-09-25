@@ -22,7 +22,7 @@ public class RichViewHolderFactory {
      *
      * Mv -> MvViewHolder, auto-generated.
      */
-    public static Class<? extends IRichViewHolder> match(Object data) {
+    public static String match(Object data) {
         if (data instanceof RichItem) {
             // 指定了 ViewHolderId
             return viewHolderMapper.match(((RichItem) data).getViewHolderId());

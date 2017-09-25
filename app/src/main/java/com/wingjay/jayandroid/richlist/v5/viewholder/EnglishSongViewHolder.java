@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.lego_annotation.RichViewHolder;
 import com.wingjay.jayandroid.R;
+import com.wingjay.jayandroid.richlist.constants.RichViewHolderConstant;
 import com.wingjay.jayandroid.richlist.uibase.IRichViewHolder;
 import com.wingjay.jayandroid.richlist.v5.bean.Song;
 
@@ -17,7 +18,7 @@ import com.wingjay.jayandroid.richlist.v5.bean.Song;
  * @author wingjay
  * @date 2017/09/21
  */
-@RichViewHolder(key = "EnglishSongViewHolder", bean = Song.class)
+@RichViewHolder(key = RichViewHolderConstant.EnglishSongViewHolder, bean = Song.class)
 public class EnglishSongViewHolder implements IRichViewHolder {
 
     private Context context;

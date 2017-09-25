@@ -8,10 +8,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import com.wingjay.jayandroid.BaseActivity;
 import com.wingjay.jayandroid.R;
-import com.wingjay.jayandroid.richlist.liveroom.bean.Mv;
 import com.wingjay.jayandroid.richlist.uibase.BaseRecyclerAdapter;
 import com.wingjay.jayandroid.richlist.uibase.RichItem;
-import com.wingjay.jayandroid.richlist.v5.bean.LocalSong;
 import com.wingjay.jayandroid.richlist.v5.bean.Song;
 
 /**
@@ -47,8 +45,8 @@ public class LiveRoomActivity extends BaseActivity {
         for (int i = 0; i < 50; i++) {
             dataList.add(RichItem.create(new Song("中文歌曲: "+i), "ChineseSongViewHolder"));
             dataList.add(RichItem.create(new Song("英文歌曲: "+i), "EnglishSongViewHolder"));
-            dataList.add(new LocalSong("localSong: " + i));
-            dataList.add(new Mv());
+            //dataList.add(new LocalSong("localSong: " + i));
+            //dataList.add(new Mv());
         }
         return dataList;
     }

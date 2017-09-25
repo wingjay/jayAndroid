@@ -21,7 +21,7 @@ public class BaseRecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder
     private static final String PERFORM_TAG = "Rich_Recycler_PERFORM";
 
     private List<Object> dataList;
-    private List<Class<? extends IRichViewHolder>> innerViewHolderClassList;
+    private List<String> viewHolderClassNameList; // IRichViewHolder class name
 
     public void setData(List<Object> dataList) {
         this.dataList = dataList;
@@ -31,22 +31,22 @@ public class BaseRecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder
     
     private void init() {
         if (dataList == null || dataList.size() <= 0) {
-            innerViewHolderClassList = null;
+            viewHolderClassNameList = null;
             return;
         }
-        innerViewHolderClassList = new ArrayList<>();
+        viewHolderClassNameList = new ArrayList<>();
         for (Object d : dataList) {
-            Class<? extends IRichViewHolder> clazz = RichViewHolderFactory.match(d);
-            if (!innerViewHolderClassList.contains(clazz)) {
-                innerViewHolderClassList.add(clazz);
+            String clazz = RichViewHolderFactory.match(d);
+            if (!viewHolderClassNameList.contains(clazz)) {
+                viewHolderClassNameList.add(clazz);
             }
         }
     }
     
     @Override
     public int getItemViewType(int position) {
-        return innerViewHolderClassList != null
-            ? innerViewHolderClassList.indexOf(RichViewHolderFactory.match(dataList.get(position)))
+        return viewHolderClassNameList != null
+            ? viewHolderClassNameList.indexOf(RichViewHolderFactory.match(dataList.get(position)))
             : 0;
     }
 
@@ -58,10 +58,11 @@ public class BaseRecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder
     @Override
     public RecyclerViewHolderDelegate onCreateViewHolder(ViewGroup parent, int viewType) {
         try {
-            Class<? extends IRichViewHolder> viewHolderClass = innerViewHolderClassList.get(viewType);
-            Constructor<? extends IRichViewHolder> constructor = viewHolderClass.getConstructor(Context.class);
+            String className = viewHolderClassNameList.get(viewType);
+            Class<?> viewHolderClass = Class.forName(className);
+            Constructor constructor = viewHolderClass.getConstructor(Context.class);
             constructor.setAccessible(true);
-            IRichViewHolder realViewHolder = constructor.newInstance(parent.getContext());
+            IRichViewHolder realViewHolder = (IRichViewHolder) constructor.newInstance(parent.getContext());
             Log.e(PERFORM_TAG, String.format("createViewHolder viewType: %s, viewHolder: %s",
                 viewType, realViewHolder.getClass().getSimpleName()));
             return new RecyclerViewHolderDelegate(realViewHolder.initView(parent), realViewHolder);

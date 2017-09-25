@@ -8,7 +8,7 @@ package com.wingjay.jayandroid.richlist.uibase;
  */
 public interface IViewHolderMapper {
     /**
-     * find ViewHolder class by key
+     * find ViewHolder class getName() by key
      */
-    Class<? extends IRichViewHolder> match(String key);
+    String match(String key);
 }

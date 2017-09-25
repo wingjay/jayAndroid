@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.example.lego_annotation.RichViewHolder;
 import com.wingjay.jayandroid.R;
+import com.wingjay.jayandroid.richlist.constants.RichViewHolderConstant;
 import com.wingjay.jayandroid.richlist.liveroom.bean.Mv;
 import com.wingjay.jayandroid.richlist.uibase.IRichViewHolder;
 
@@ -16,7 +17,7 @@ import com.wingjay.jayandroid.richlist.uibase.IRichViewHolder;
  * @author wingjay
  * @date 2017/09/21
  */
-@RichViewHolder(key = "MvViewHolder", bean = Mv.class)
+@RichViewHolder(key = RichViewHolderConstant.MvViewHolder, bean = Mv.class)
 public class MvViewHolder implements IRichViewHolder {
 
     private Context context;

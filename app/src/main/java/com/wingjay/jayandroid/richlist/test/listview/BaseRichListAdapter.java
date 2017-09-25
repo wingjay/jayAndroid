@@ -27,7 +27,7 @@ public class BaseRichListAdapter extends BaseAdapter {
     private final Context context;
     private List<Object> dataList = new ArrayList<>(0);
 
-    private List<Class<? extends IRichViewHolder>> viewTypeList;
+    private List<String> viewHolderClassNameList;
 
     public BaseRichListAdapter(Context context) {
         this.context = context;
@@ -41,15 +41,15 @@ public class BaseRichListAdapter extends BaseAdapter {
 
     private void initViewType() {
         if (dataList == null || dataList.size() <= 0) {
-            viewTypeList = new ArrayList<>(0);
+            viewHolderClassNameList = new ArrayList<>(0);
             return;
         }
 
-        viewTypeList = new ArrayList<>(dataList.size());
+        viewHolderClassNameList = new ArrayList<>(dataList.size());
         for (Object d : dataList) {
-            Class<? extends IRichViewHolder> vh = RichViewHolderFactory.match(d);
-            if (!viewTypeList.contains(vh)) {
-                viewTypeList.add(vh);
+            String vh = RichViewHolderFactory.match(d);
+            if (!viewHolderClassNameList.contains(vh)) {
+                viewHolderClassNameList.add(vh);
             }
         }
     }
@@ -73,9 +73,12 @@ public class BaseRichListAdapter extends BaseAdapter {
     public View getView(int position, View view, ViewGroup viewGroup) {
         Object data = getItem(position);
         IRichViewHolder viewHolder;
-        if (view == null || !(view.getTag().getClass().equals(viewTypeList.get(getItemViewType(position))))) {
-            Class<? extends IRichViewHolder> clazz = viewTypeList.get(getItemViewType(position));
+        if (view == null
+            || !(view.getTag().getClass().getName().equals(viewHolderClassNameList.get(getItemViewType(position))))) {
+            //Class<? extends IRichViewHolder> clazz = viewHolderClassNameList.get(getItemViewType(position));
+            String className = viewHolderClassNameList.get(getItemViewType(position));
             try {
+                Class<?> clazz = Class.forName(className);
                 Constructor constructor = clazz.getConstructor(Context.class);
                 constructor.setAccessible(true);
                 viewHolder = (IRichViewHolder) constructor.newInstance(viewGroup.getContext());
@@ -99,11 +102,11 @@ public class BaseRichListAdapter extends BaseAdapter {
 
     @Override
     public int getViewTypeCount() {
-        return viewTypeList == null ? 1 : viewTypeList.size();
+        return viewHolderClassNameList == null ? 1 : viewHolderClassNameList.size();
     }
 
     @Override
     public int getItemViewType(int position) {
-        return viewTypeList == null ? 0 : viewTypeList.indexOf(RichViewHolderFactory.match(getItem(position)));
+        return viewHolderClassNameList == null ? 0 : viewHolderClassNameList.indexOf(RichViewHolderFactory.match(getItem(position)));
     }
 }
