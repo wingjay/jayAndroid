@@ -46,6 +46,9 @@ buildscript {
 
 repositories {
   mavenLocal()
+  maven { url "http://mvnrepo.alibaba-inc.com/mvn/repository" }
+  maven { url "http://mvnrepo.alibaba-inc.com/mvn/snapshots" }
+  maven { url 'http://maven.aliyun.com/nexus/content/repositories/releases/' }
   mavenCentral()
   maven {
     url 'https://maven.google.com/'
@@ -104,6 +107,9 @@ dependencies {
   //annotation
   compile project(':lego-annotation')
   apt project(':lego-processor')
+
+  // tmall viewtracker
+//  compile('com.tmall.android:tmallandroid_viewtracker:1.0.11.64')
 
 //  compile project(path: ':android-skin-loader-lib')
 //  compile project(path: ':wingjay-skin-loader')

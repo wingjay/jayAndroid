@@ -40,8 +40,7 @@ public class App extends Application implements GlowForumComponentProvider, IRic
     public void onCreate() {
       super.onCreate();
 
-        RichViewHolderFactory.init(this);
-
+      RichViewHolderFactory.init(this);
       Realm.init(this);
       Stetho.initializeWithDefaults(this);
 
@@ -61,10 +60,7 @@ public class App extends Application implements GlowForumComponentProvider, IRic
 
       initWeex();
 
-        //SkinManager.getInstance().init(this);
-        //SkinManager.getInstance().load();
-        //
-        //OkSkin.getInstance().init(this);
+      //TrackerManager.getInstance().init(this, true, true, true);
     }
 
   private void initWeex() {

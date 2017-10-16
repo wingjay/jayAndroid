@@ -4,6 +4,7 @@ import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.Lifecycle.Event;
 import android.arch.lifecycle.Lifecycle.State;
 import android.arch.lifecycle.LifecycleObserver;
+import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.OnLifecycleEvent;
 import android.util.Log;
 
@@ -23,16 +24,16 @@ public class LocationListener implements LifecycleObserver {
     }
 
     @OnLifecycleEvent(Event.ON_CREATE)
-    public void start() {
-        Log.e(TAG, "Ready for START");
+    protected void start() {
+        Log.e(TAG, "LocationListener Ready for START");
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    Log.e(TAG, "Sleep");
+                    Log.e(TAG, "LocationListener Sleep");
                     Thread.sleep(5000);
                     if (lifecycle.getCurrentState().isAtLeast(State.STARTED)) {
-                        Log.e(TAG, "START!");
+                        Log.e(TAG, "LocationListener START!");
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -42,7 +43,17 @@ public class LocationListener implements LifecycleObserver {
     }
 
     @OnLifecycleEvent(Event.ON_STOP)
-    public void stop() {
-        Log.e(TAG, "STOP");
+    protected void stop() {
+        Log.e(TAG, "LocationListener STOP");
+    }
+
+    @OnLifecycleEvent(Event.ON_DESTROY)
+    private void destory() {
+        Log.e(TAG, "LocationListener DESTORY");
+    }
+
+    @OnLifecycleEvent(Event.ON_ANY)
+    private void any(LifecycleOwner owner, Lifecycle.Event event) {
+        Log.e(TAG, "LocationListener ANY: " + event.name() + "; owner: " + owner.toString());
     }
 }
