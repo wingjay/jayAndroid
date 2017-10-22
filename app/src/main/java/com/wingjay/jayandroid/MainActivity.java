@@ -21,7 +21,7 @@ import com.wingjay.jayandroid.fastblur.FastBlurActivity;
 import com.wingjay.jayandroid.fragmentstudy.HolderActivity;
 import com.wingjay.jayandroid.fulltextview.FullTextViewActivity;
 import com.wingjay.jayandroid.gesture.GestureActivity;
-import com.wingjay.jayandroid.lifecycle.LifecycleActivity;
+import com.wingjay.jayandroid.livedata.LiveDataActivity;
 import com.wingjay.jayandroid.lowpoly.LowPolyActivity;
 import com.wingjay.jayandroid.ndkdev.NdkActivity;
 import com.wingjay.jayandroid.perisope.PerisopeActivity;
@@ -30,6 +30,7 @@ import com.wingjay.jayandroid.realm.RealmIntroActivity;
 import com.wingjay.jayandroid.retrofitOkhttpUpgrade.RetrofitOkhttpUpgradeActivity;
 import com.wingjay.jayandroid.richlist.v5.RichListActivity;
 import com.wingjay.jayandroid.rxjava.RxJavaActivity;
+import com.wingjay.jayandroid.autolifecycle.AutoLifecycleActivity;
 import com.wingjay.jayandroid.skin.AndroidSkinLoaderDemoActivity;
 import com.wingjay.jayandroid.skin.JaySkinLoaderDemoActivity;
 import com.wingjay.jayandroid.skin.SkinActivity;
@@ -62,9 +63,14 @@ public class MainActivity extends BaseActivity {
 //        Log.i(TAG, FastBlurJni.test());
     }
 
-    @OnClick(R.id.lifecycle)
+    @OnClick(R.id.auto_lifecycle)
+    void autoLifecycle() {
+        startMyActivity(AutoLifecycleActivity.class);
+    }
+
+    @OnClick(R.id.livedata)
     void lifecycle() {
-        startMyActivity(LifecycleActivity.class);
+        startMyActivity(LiveDataActivity.class);
     }
 
     @OnClick(R.id.rich_test)

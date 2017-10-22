@@ -1,11 +1,14 @@
 package com.wingjay.jayandroid;
 
+import java.util.concurrent.TimeUnit;
+
 import android.os.Bundle;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.View.OnTouchListener;
-import android.widget.Toast;
+import android.util.Log;
+import com.wingjay.jayandroid.autolifecycle.ActivityLifecycle;
+import rx.Observable;
+import rx.functions.Action1;
+import rx.functions.Func0;
+import rx.functions.Func1;
 
 /**
  * Created by Jay on 5/10/17.
@@ -13,62 +16,33 @@ import android.widget.Toast;
 
 public class ForTestActivity extends BaseActivity {
 
-  private View parent;
-  private View floatingView, showHideBt, bt2, bt3, bt3Container;
-
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_test);
-    parent = findViewById(R.id.parent);
-    floatingView = findViewById(R.id.floating_view);
-    showHideBt = findViewById(R.id.bt1);
-    bt2 = findViewById(R.id.bt2);
-    bt3 = findViewById(R.id.bt3);
-    bt3Container = findViewById(R.id.bt3_container);
 
-    showHideBt.setOnClickListener(new OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        toggle();
-      }
-    });
-    bt2.setOnClickListener(new OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        Toast.makeText(ForTestActivity.this, "bt2", Toast.LENGTH_SHORT).show();
-      }
-    });
-    bt3.setOnClickListener(new OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        Toast.makeText(ForTestActivity.this, "bt3", Toast.LENGTH_SHORT).show();
-      }
-    });
-  }
-
-  private void toggle() {
-    floatingView.setVisibility(floatingView.getVisibility() == View.VISIBLE ? View.GONE : View.VISIBLE);
-    if (floatingView.getVisibility() == View.VISIBLE) {
-      bt3Container.setOnClickListener(new OnClickListener() {
-        @Override
-        public void onClick(View v) {
-          floatingView.setVisibility(View.GONE);
-        }
-      });
-      parent.setOnTouchListener(new OnTouchListener() {
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-          if (floatingView.getVisibility() == View.VISIBLE) {
-            floatingView.setVisibility(View.GONE);
-            return true;
+    Observable.interval(1, TimeUnit.SECONDS)
+        .compose(this.<Long>bindUntilEvent(ActivityLifecycle.STOP))
+        .subscribe(new Action1<Long>() {
+          @Override
+          public void call(Long aLong) {
+            Log.e("jaydebug", "interval " + aLong);
           }
-          return false;
-        }
-      });
-    } else {
-      bt3Container.setClickable(false);
-      parent.setOnTouchListener(null);
-    }
+        });
+
+    Observable loadDataObservable = Observable.defer(new Func0<Observable<Object>>() {
+      @Override
+      public Observable<Object> call() {
+        Log.e("jaydebug", "defer");
+        return Observable.just(null).map(new Func1<Object, Object>() {
+          @Override
+          public Object call(Object o) {
+            Log.e("jaydebug", "loadData");
+            return null;
+          }
+        });
+      }
+    });
+    executeWhen(loadDataObservable, ActivityLifecycle.PRE_INFLATE);
+    setContentView(R.layout.activity_test);
   }
 }

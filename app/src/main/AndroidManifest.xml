@@ -84,7 +84,8 @@
         <activity android:name=".eveanimation.EveCycleViewActivity"
                   android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".animation.searchbar.LottieActivity"/>
-        <activity android:name=".lifecycle.LifecycleActivity"/>
+        <activity android:name=".livedata.LiveDataActivity"/>
+        <activity android:name=".autolifecycle.AutoLifecycleActivity"/>
 
         <provider
             android:authorities="com.wingjay.jayandroid.contentprovider"
