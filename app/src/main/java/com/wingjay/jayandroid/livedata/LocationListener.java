@@ -1,4 +1,4 @@
-package com.wingjay.jayandroid.lifecycle;
+package com.wingjay.jayandroid.livedata;
 
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.Lifecycle.Event;
@@ -21,6 +21,7 @@ public class LocationListener implements LifecycleObserver {
 
     public LocationListener(Lifecycle lifecycle) {
         this.lifecycle = lifecycle;
+        lifecycle.addObserver(this);
     }
 
     @OnLifecycleEvent(Event.ON_CREATE)

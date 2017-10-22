@@ -1,10 +1,10 @@
-package com.wingjay.jayandroid.lifecycle;
+package com.wingjay.jayandroid.livedata;
 
 import java.util.concurrent.TimeUnit;
 
 import android.arch.lifecycle.LiveData;
 import android.util.Log;
-import com.wingjay.jayandroid.lifecycle.LocationLiveData.Location;
+import com.wingjay.jayandroid.livedata.LocationLiveData.Location;
 import rx.Observable;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;

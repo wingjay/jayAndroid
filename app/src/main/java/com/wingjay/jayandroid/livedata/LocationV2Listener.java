@@ -1,4 +1,4 @@
-package com.wingjay.jayandroid.lifecycle;
+package com.wingjay.jayandroid.livedata;
 
 import android.arch.lifecycle.Lifecycle;
 import android.util.Log;
@@ -15,15 +15,15 @@ public class LocationV2Listener extends LocationListener {
     }
 
     @Override
-    public void start() {
-        super.start();
+    protected void start() {
+        //super.start();
         // it won't be invoked when Event.ON_CREATE
         Log.d("jaydebug", "LocationV2Listener start");
     }
 
     @Override
-    public void stop() {
-        super.stop();
+    protected void stop() {
+        //super.stop();
         // it won't be invoked when Event.ON_STOP
         Log.d("jaydebug", "LocationV2Listener stop");
     }
