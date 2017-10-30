@@ -6,14 +6,14 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * RxLifecycleEvent
+ * AutoLifecycleEvent
  *
  * @author wingjay
  * @date 2017/10/22
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface RxLifecycleEvent {
+public @interface AutoLifecycleEvent {
     ActivityLifecycle activity() default ActivityLifecycle.NULL;
     FragmentLifecycle fragment() default FragmentLifecycle.NULL;
     DialogFragmentLifecycle dialog() default DialogFragmentLifecycle.NULL;

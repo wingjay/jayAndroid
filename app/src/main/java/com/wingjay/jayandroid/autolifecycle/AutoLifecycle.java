@@ -34,7 +34,7 @@ public class AutoLifecycle {
         Class clazz = object.getClass();
         Method[] methods = clazz.getDeclaredMethods();
         for (final Method m : methods) {
-            RxLifecycleEvent event = m.getAnnotation(RxLifecycleEvent.class);
+            AutoLifecycleEvent event = m.getAnnotation(AutoLifecycleEvent.class);
             if (event == null) {
                 continue;
             }
