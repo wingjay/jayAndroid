@@ -35,6 +35,7 @@ import com.wingjay.jayandroid.skin.AndroidSkinLoaderDemoActivity;
 import com.wingjay.jayandroid.skin.JaySkinLoaderDemoActivity;
 import com.wingjay.jayandroid.skin.SkinActivity;
 import com.wingjay.jayandroid.statusbar.StatusBarActivity;
+import com.wingjay.jayandroid.tracker.TrackerActivity;
 import com.wingjay.jayandroid.webview.WebViewActivity;
 import com.wingjay.jayandroid.weex.HelloWeexActivity;
 import com.wingjay.jayandroid.xiami.XiamiActivity;
@@ -61,6 +62,11 @@ public class MainActivity extends BaseActivity {
             }
         });
 //        Log.i(TAG, FastBlurJni.test());
+    }
+
+    @OnClick(R.id.tracker)
+    void tracker() {
+        startMyActivity(TrackerActivity.class);
     }
 
     @OnClick(R.id.auto_lifecycle)

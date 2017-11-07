@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <com.wingjay.jayandroid.tracker.TrackerFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <View
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="600dp"
+                android:background="@color/alpha_xiamired"/>
+
+            <com.wingjay.jayandroid.tracker.TrackerView
+                android:id="@+id/tracker"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@color/black"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5000dp"
+                android:background="@color/alpha_xiamired"/>
+
+        </LinearLayout>
+
+    </com.wingjay.jayandroid.tracker.TrackerFrameLayout>
+
+</ScrollView>

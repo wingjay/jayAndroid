@@ -12,6 +12,12 @@
         android:layout_height="match_parent">
 
         <Button
+            android:id="@+id/tracker"
+            android:text="Tracker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
             android:id="@+id/auto_lifecycle"
             android:text="Auto Lifecycle"
             android:layout_width="match_parent"

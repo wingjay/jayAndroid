@@ -86,6 +86,7 @@
         <activity android:name=".animation.searchbar.LottieActivity"/>
         <activity android:name=".livedata.LiveDataActivity"/>
         <activity android:name=".autolifecycle.AutoLifecycleActivity"/>
+        <activity android:name=".tracker.TrackerActivity"/>
 
         <provider
             android:authorities="com.wingjay.jayandroid.contentprovider"
