@@ -30,7 +30,7 @@ public class BaseFragment extends Fragment {
   public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
     ButterKnife.bind(view);
-    Log.d("jaydebug", TAG + "onViewCreated");
+    Log.d("7.0-req1jaydebug", TAG + "onViewCreated");
   }
 
   @Override
