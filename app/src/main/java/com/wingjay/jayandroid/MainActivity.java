@@ -35,6 +35,7 @@ import com.wingjay.jayandroid.skin.AndroidSkinLoaderDemoActivity;
 import com.wingjay.jayandroid.skin.JaySkinLoaderDemoActivity;
 import com.wingjay.jayandroid.skin.SkinActivity;
 import com.wingjay.jayandroid.statusbar.StatusBarActivity;
+import com.wingjay.jayandroid.tiktok.TikTokActivity;
 import com.wingjay.jayandroid.tracker.TrackerActivity;
 import com.wingjay.jayandroid.webview.WebViewActivity;
 import com.wingjay.jayandroid.weex.HelloWeexActivity;
@@ -62,6 +63,11 @@ public class MainActivity extends BaseActivity {
             }
         });
 //        Log.i(TAG, FastBlurJni.test());
+    }
+
+    @OnClick(R.id.tik_tok)
+    void tiktok() {
+        startMyActivity(TikTokActivity.class);
     }
 
     @OnClick(R.id.tracker)
