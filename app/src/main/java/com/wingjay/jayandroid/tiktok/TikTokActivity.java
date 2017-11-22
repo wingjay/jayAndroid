@@ -17,7 +17,7 @@ public class TikTokActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tiktok);
-        setTitle("");
+        setTitle("last minute fix: git flow");
         initViewPager();
     }
 
