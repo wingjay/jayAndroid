@@ -87,6 +87,7 @@
         <activity android:name=".livedata.LiveDataActivity"/>
         <activity android:name=".autolifecycle.AutoLifecycleActivity"/>
         <activity android:name=".tracker.TrackerActivity"/>
+        <activity android:name=".tiktok.TikTokActivity"/>
 
         <provider
             android:authorities="com.wingjay.jayandroid.contentprovider"

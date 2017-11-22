@@ -12,6 +12,12 @@
         android:layout_height="match_parent">
 
         <Button
+            android:id="@+id/tik_tok"
+            android:text="Tik Tok"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
             android:id="@+id/tracker"
             android:text="Tracker"
             android:layout_width="match_parent"
