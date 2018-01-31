@@ -10,8 +10,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import butterknife.ButterKnife;
+import retrofit2.http.HEAD;
 
 /**
  * Created by Jay on 1/2/16.
@@ -30,7 +30,7 @@ public class BaseFragment extends Fragment {
   public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
     ButterKnife.bind(view);
-    Log.d("7.0/r1 jaydebug", TAG + "onViewCreated");
+    Log.d("7.0-req1jaydebug", TAG + "onViewCreated");
   }
 
   @Override
