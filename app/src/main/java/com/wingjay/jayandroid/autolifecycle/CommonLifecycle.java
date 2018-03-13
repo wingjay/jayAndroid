@@ -1,14 +1,14 @@
 package com.wingjay.jayandroid.autolifecycle;
 
 /**
- * ActivityLifecycle
+ * CommonLifecycle
+ * Same lifecycle shared between Activity, Fragment, DialogFragment.
  *
  * @author wingjay
- * @date 2017/08/09
+ * @date 2018/03/13
  */
-public enum ActivityLifecycle implements IContextLifecycle {
+public enum CommonLifecycle {
     CREATE,
-    PRE_INFLATE,
     START,
     RESUME,
     PAUSE,

@@ -17,4 +17,5 @@ public @interface AutoLifecycleEvent {
     ActivityLifecycle activity() default ActivityLifecycle.NULL;
     FragmentLifecycle fragment() default FragmentLifecycle.NULL;
     DialogFragmentLifecycle dialog() default DialogFragmentLifecycle.NULL;
+    CommonLifecycle common() default CommonLifecycle.NULL;
 }

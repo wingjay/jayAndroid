@@ -18,5 +18,5 @@ public enum FragmentLifecycle implements IContextLifecycle {
     DESTROY_VIEW,
     DESTROY,
     DETACH,
-    NULL,
+    NULL
 }

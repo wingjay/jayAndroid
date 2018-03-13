@@ -2,16 +2,13 @@ package com.wingjay.jayandroid.retrofitOkhttpUpgrade;
 
 import android.os.Bundle;
 import android.util.Log;
-
 import com.wingjay.jayandroid.BaseActivity;
-
-import java.io.IOException;
-import java.security.cert.Certificate;
-
-import okhttp3.CertificatePinner;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by Jay on 7/24/16.
@@ -22,61 +19,60 @@ public class RetrofitOkhttpUpgradeActivity extends BaseActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    final OkHttpClient client = new OkHttpClient.Builder()
-        .certificatePinner(new CertificatePinner.Builder()
-            .add("publicobject.com", "sha256/afwiKY3RxoMmLkuRW1l7QsPZTJPwDS2pdDROQjXw8ig=").build())
+    //final OkHttpClient client = new OkHttpClient.Builder()
+    //    .certificatePinner(new CertificatePinner.Builder()
+    //        .add("publicobject.com", "sha256/afwiKY3RxoMmLkuRW1l7QsPZTJPwDS2pdDROQjXw8ig=").build())
+    //    .build();
+    //
+    //new Thread(new Runnable() {
+    //  @Override
+    //  public void run() {
+    //    try {
+    //      Request request = new Request.Builder()
+    //          .url("https://publicobject.com/robots.txt")
+    //          .build();
+    //      Response response = client.newCall(request).execute();
+    //      Log.d("jaydebug", "response");
+    //      if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
+    //      for (Certificate certificate : response.handshake().peerCertificates()) {
+    //        Log.d("jaydebug", CertificatePinner.pin(certificate));
+    //      }
+    //    } catch (IOException e) {
+    //      e.printStackTrace();
+    //    }
+    //  }
+    //}).start();
+
+    Retrofit retrofit = new Retrofit.Builder()
+        .baseUrl("https://api.github.com/")
+        .addConverterFactory(GsonConverterFactory.create())
+        .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
         .build();
 
-    new Thread(new Runnable() {
-      @Override
-      public void run() {
-        try {
-          Request request = new Request.Builder()
-              .url("https://publicobject.com/robots.txt")
-              .build();
-          Response response = client.newCall(request).execute();
-          Log.d("jaydebug", "response");
-          if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
-          for (Certificate certificate : response.handshake().peerCertificates()) {
-            Log.d("jaydebug", CertificatePinner.pin(certificate));
-          }
-        } catch (IOException e) {
-          e.printStackTrace();
-        }
-      }
-    }).start();
-
-//    Retrofit retrofit = new Retrofit.Builder()
-//        .baseUrl("https://api.github.com/")
-//        .addConverterFactory(GsonConverterFactory.create())
-//        .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-//        .build();
-//
-//    final UserService userService = retrofit.create(UserService.class);
+    final UserService userService = retrofit.create(UserService.class);
 
     Log.d("jaydebug", "start0");
-//    userService.listRepos("wingjay").subscribeOn(Schedulers.io())
-//        .observeOn(AndroidSchedulers.mainThread())
-//        .subscribe(new Subscriber<GithubUser>() {
-//          @Override
-//          public void onCompleted() {
-//            Log.d("jaydebug", "onCompleted");
-//          }
-//
-//          @Override
-//          public void onError(Throwable e) {
-//            // HttpException non 2xx
-//            // Exception: such as UnKnownHostException
-//            e.printStackTrace();
-//            Log.d("jaydebug", "onError" + e.toString());
-//          }
-//
-//          @Override
-//          public void onNext(GithubUser githubUser) {
-//            Log.d("jaydebug", "githubuser is null?" + (githubUser == null));
-//          }
-//        });
+    userService.listRepos("wingjay").subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribe(new Subscriber<GithubUser>() {
+          @Override
+          public void onCompleted() {
+            Log.d("jaydebug", "onCompleted");
+          }
 
+          @Override
+          public void onError(Throwable e) {
+            // HttpException non 2xx
+            // Exception: such as UnKnownHostException
+            e.printStackTrace();
+            Log.d("jaydebug", "onError" + e.toString());
+          }
+
+          @Override
+          public void onNext(GithubUser githubUser) {
+            Log.d("jaydebug", "githubuser is null?" + (githubUser == null));
+          }
+        });
 //      userService.listRepos3("wingjay").enqueue(new Callback<GithubUser>() {
 //        @Override
 //        public void onResponse(Call<GithubUser> call, Response<GithubUser> response) {
