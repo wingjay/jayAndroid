@@ -3,7 +3,7 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="com.wingjay.jayandroid">
 
-    <uses-sdk tools:overrideLibrary = "com.airbnb.lottie"/>
+    <uses-sdk tools:overrideLibrary = "com.airbnb.lottie, io.agora.rtc"/>
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -89,6 +89,7 @@
         <activity android:name=".tracker.TrackerActivity"/>
         <activity android:name=".tiktok.TikTokActivity"/>
         <activity android:name=".recyclerview.RecyclerViewActivity"/>
+        <activity android:name=".agora.AgoraActivity"/>
 
         <provider
             android:authorities="com.wingjay.jayandroid.contentprovider"

@@ -1,7 +1,7 @@
 package com.wingjay.jayandroid;
 
-import android.app.Application;
 import android.content.Context;
+import android.support.multidex.MultiDexApplication;
 import com.facebook.stetho.Stetho;
 import com.squareup.leakcanary.LeakCanary;
 import com.taobao.weex.InitConfig;
@@ -27,7 +27,7 @@ import io.realm.Realm;
 /**
  * Created by Jay on 4/20/16.
  */
-public class App extends Application implements GlowForumComponentProvider, IRichProvider {
+public class App extends MultiDexApplication implements GlowForumComponentProvider, IRichProvider {
 
     AppComponent appComponent;
     SubComponent subComponent;
